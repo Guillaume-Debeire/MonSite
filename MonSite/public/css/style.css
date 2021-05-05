@@ -1,0 +1,36 @@
+body {
+    width: 80vw;
+    margin: auto;
+    padding: auto;
+    text-align: center;
+    background-color: rgb(219, 235, 255);
+}
+
+.header {
+    display:flex;
+    flex-direction: row;
+    width: 20em;
+    margin: 2em auto;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.header a {
+    text-decoration: none;
+    text-emphasis: none;
+    text-align: center;
+    color: black;
+    border-bottom: black solid 1px;
+    border-radius: 15%;
+    box-shadow: 5px 5px 10px 10px rgb(219, 235, 255);
+}
+
+
+.footer_logo_pro {
+    width: 20px;
+}
+
+.profile-pic {
+    width : 20em;
+    border-radius: 20%;
+}
