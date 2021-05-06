@@ -69,7 +69,7 @@ class ParcoursController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('parcours_index');
+            return $this->redirectToRoute('parcours');
         }
 
         return $this->render('parcours/edit.html.twig', [
@@ -89,6 +89,6 @@ class ParcoursController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('parcours_index');
+        return $this->redirectToRoute('parcours');
     }
 }

@@ -6,7 +6,9 @@
     <h1>Mon Parcours</h1>
 
         {% for parcour in parcours %}
-            <a class="parcours_index" href="{{ path('parcours_new') }}">{{ parcour.name }}</a>
+            
+                <a class="parcours_index" href="{{ path('parcours_show', {'id': parcour.id}) }}) }}">{{ parcour.name }}</a>
+            <br>
         {% else %}
             <tr>
                 <td colspan="7">no records found</td>

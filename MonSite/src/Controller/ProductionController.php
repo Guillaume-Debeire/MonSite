@@ -39,7 +39,7 @@ class ProductionController extends AbstractController
             $entityManager->persist($production);
             $entityManager->flush();
 
-            return $this->redirectToRoute('production_index');
+            return $this->redirectToRoute('production');
         }
 
         return $this->render('production/new.html.twig', [
@@ -89,6 +89,6 @@ class ProductionController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('production_index');
+        return $this->redirectToRoute('production');
     }
 }
