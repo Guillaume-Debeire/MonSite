@@ -1,15 +1,18 @@
 body {
+    font-family: 'Montserrat', sans-serif;
     width: 80vw;
     margin: auto;
     padding: auto;
     text-align: center;
-    background-color: rgb(219, 235, 255);
+    background-color: rgb(18, 41, 70);
+    color: rgb(177, 212, 255)
 }
+
 
 .header {
     display:flex;
     flex-direction: row;
-    width: 20em;
+    width: 25em;
     margin: 2em auto;
     text-align: center;
     justify-content: space-between;
@@ -19,18 +22,51 @@ body {
     text-decoration: none;
     text-emphasis: none;
     text-align: center;
-    color: black;
-    border-bottom: black solid 1px;
-    border-radius: 15%;
-    box-shadow: 5px 5px 10px 10px rgb(219, 235, 255);
+    color: rgb(177, 212, 255);
+    border-radius: 10%;
+    padding: 9px 15px;
+    margin: 0 0,5em;
+    font-size: small;
+}
+
+.header a:hover{
+    background-color: rgb(37, 69, 107);
+    color: rgb(255, 255, 255);
+    box-shadow: 0px 8px 10px 0px rgb(12, 28, 48);
 }
 
 
 .footer_logo_pro {
-    width: 20px;
+    width: 40px;
+    margin: 1em;
+}
+
+.footer_logo_pro:hover {
+    box-shadow: 0px 4px 20px 1px rgb(82, 98, 119);
 }
 
 .profile-pic {
-    width : 20em;
+    width : 40em;
+
     border-radius: 20%;
+    border: 5px solid rgb(6, 14, 24);
+    box-shadow: 0px 8px 20px 1px rgb(72, 86, 105);
+}
+
+.footer {
+    text-align: center;
+    position: fixed;
+    left: 100px; right: 100px; bottom: 10px;
+}
+
+@media (min-width: 300px) {
+    .profile-pic {
+        width: 200px;
+    }
+}
+
+@media (min-width: 600px) {
+    .profile-pic {
+        width: 400px;
+    }
 }
