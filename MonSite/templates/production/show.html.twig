@@ -3,36 +3,26 @@
 {% block title %}Production{% endblock %}
 
 {% block body %}
-    <h1>Production</h1>
+    <header class="show_header">
+        <h1>{{ production.name }}</h1>
+        <h3>Formation développeur web & web mobile  </h3>
+    </header>
+    <body>
+        <div>
+            <p>{{ production.description }}</p>
+        </div>
+        <div class="show_photo">
+            {# {{ for photo in photos }}
+                
+            {{ endfor }} #}
+        </div>
+        {% if (production.YoutubeVideo is defined) %}
+            <div>
+                <iframe class="youtube" width="560" height="315" src="{{ production.YoutubeVideo }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        {% endif %}
+    </body>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ production.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ production.name }}</td>
-            </tr>
-            <tr>
-                <th>Picture</th>
-                <td>{{ production.picture }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ production.description }}</td>
-            </tr>
-            <tr>
-                <th>Link</th>
-                <td>{{ production.link }}</td>
-            </tr>
-            <tr>
-                <th>Code_screen</th>
-                <td>{{ production.codeScreen }}</td>
-            </tr>
-        </tbody>
-    </table>
 
     <a href="{{ path('production') }}">back to list</a>
 

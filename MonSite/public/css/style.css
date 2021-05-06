@@ -83,6 +83,17 @@ body {
     left: 100px; right: 100px; bottom: 10px;
 }
 
+.footer_presentation {
+    margin: 1px
+}
+.footer_presentation h5, h6 {
+    margin: 2px;
+}
+
+.youtube {
+    border-radius: 25px;
+}
+
 @media (min-width: 300px) {
     .profile-pic {
         width: 200px;

@@ -8,7 +8,22 @@
         <h3>Formation développeur web & web mobile  </h3>
     </header>
     <body>
-        {{ parcour.description }}
+        <div>
+            <p>{{ parcour.description }}</p>
+        </div>
+        <div class="software_index">
+            
+        </div>
+        <div class="parcour_photo">
+            {# {{ for photo in photos }}
+                
+            {{ endfor }} #}
+        </div>
+        {% if (parcour.YoutubeVideo is defined) %}
+            <div>
+                <iframe class="youtube" width="560" height="315" src="{{ parcour.YoutubeVideo }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        {% endif %}
     </body>
 
     <a href="{{ path('parcours') }}">back to list</a>

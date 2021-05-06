@@ -13,10 +13,10 @@ class ProductionType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('picture')
             ->add('description')
             ->add('link')
             ->add('code_screen')
+            ->add('YoutubeVideo')
         ;
     }
 

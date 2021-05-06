@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Parcours;
+use App\Entity\Software;
 use App\Form\ParcoursType;
 use App\Repository\ParcoursRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -36,6 +37,8 @@ class ParcoursController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $parcoursSoftware = $form->get('software_new')->getData();
+            $parcour->addSoftware($parcoursSoftware); 
             $entityManager->persist($parcour);
             $entityManager->flush();
 
@@ -54,7 +57,7 @@ class ParcoursController extends AbstractController
     public function show(Parcours $parcour): Response
     {
         return $this->render('parcours/show.html.twig', [
-            'parcour' => $parcour,
+            'parcour' => $parcour
         ]);
     }
 

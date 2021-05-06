@@ -69,7 +69,7 @@ class ProductionController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('production_index');
+            return $this->redirectToRoute('production');
         }
 
         return $this->render('production/edit.html.twig', [

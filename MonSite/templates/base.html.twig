@@ -13,7 +13,7 @@
         
         
         {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
+            <script></script>
         {% endblock %}
     </head>
     <body>
@@ -27,6 +27,10 @@
     {% block body %}{% endblock %}
     {% block footer %}
         <div class="footer">
+            <div class="footer_presentation">
+                <h5>Guillaume Debeire</h5>
+                <h6>Développeur web</h6>
+            </div>
             <div class ="footer_nav">
                 <a href="https://www.linkedin.com/in/guillaume-debeire-aab430a7/"><img class ="footer_logo_pro" src="{{ asset('assets/images/linkedin-logo.png') }}" alt="Linkedin"></a>
                 <a href="https://github.com/Guillaume-Debeire"><img class ="footer_logo_pro" src="{{ asset('assets/images/github-logo.png') }}" alt="Github"></a>
