@@ -37,8 +37,6 @@ class ParcoursController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            $parcoursSoftware = $form->get('software_new')->getData();
-            $parcour->addSoftware($parcoursSoftware); 
             $entityManager->persist($parcour);
             $entityManager->flush();
 
