@@ -4,8 +4,93 @@
 
 {% block body %}
     <h1>Mon Parcours</h1>
+    <div class="parcours_cards">
+        
+        <a href="" class="parcours_card_2">
+            <div class="parcours_card_header">
+                <h3 class="parcours_card_title">Bac S</h3>
+                <h5 class="parcours_card_duration">2011 ?</h4>
+                    <p class="parcours_card_description">La formation O'clock est une formation d'une durée de 6 mois comprenant 4 mois de socle et 2 mois de spécialisation.
 
-        {% for parcour in parcours %}
+
+                    Durant le socle, j'ai pu totalement intégrer le HTML et le CSS. La formation était axée PHP mais j'ai également pu acquérir des notions de Javascript.</p>
+            </div>
+            <div class="parcours_card_footer">
+                <div class="parcours_card_software">
+                    <h3 class="oarcours_card_title">Logiciels</h3>
+                        <ul>
+                            <li>VS Code</li>
+                            <li>Insomnia</li>
+                        </ul>
+                </div>
+                <div class="parcours_card_software">
+                    <h3 class="oarcours_card_title">Compétences</h3>
+                        <ul>
+                            <li>VS Code</li>
+                            <li>Insomnia</li>
+                        </ul>
+                </div>
+            </div>
+        
+        </a>
+        <a href="" class="parcours_card_1">
+            <div class="parcours_card_header">
+                <h3 class="parcours_card_title">3iS</h3>
+                <h5 class="parcours_card_duration">Septembre 2012 -> Juin 2015</h4>
+                    <p class="parcours_card_description">La formation O'clock est une formation d'une durée de 6 mois comprenant 4 mois de socle et 2 mois de spécialisation.
+
+
+                    Durant le socle, j'ai pu totalement intégrer le HTML et le CSS. La formation était axée PHP mais j'ai également pu acquérir des notions de Javascript.</p>
+            </div>
+            <div class="parcours_card_footer">
+                <div class="parcours_card_software">
+                    <h3 class="oarcours_card_title">Logiciels</h3>
+                        <ul>
+                            <li>VS Code</li>
+                            <li>Insomnia</li>
+                        </ul>
+                </div>
+                <div class="parcours_card_software">
+                    <h3 class="oarcours_card_title">Compétences</h3>
+                        <ul>
+                            <li>VS Code</li>
+                            <li>Insomnia</li>
+                        </ul>
+                </div>
+            </div>
+        </a>
+        <a href="" class="parcours_card_2">
+            <div class="parcours_card_header">
+                <h3 class="parcours_card_title">O'Clock</h3>
+                <h5 class="parcours_card_duration">Septembre 2020 -> Avril 2021</h4>
+                    <p class="parcours_card_description">La formation O'clock est une formation d'une durée de 6 mois comprenant 4 mois de socle et 2 mois de spécialisation.
+
+
+                    Durant le socle, j'ai pu totalement intégrer le HTML et le CSS. La formation était axée PHP mais j'ai également pu acquérir des notions de Javascript.</p>
+            </div>
+            <div class="parcours_card_footer">
+                <div class="parcours_card_software">
+                    <h3 class="oarcours_card_title">Logiciels</h3>
+                        <ul>
+                            <li>VS Code</li>
+                            <li>Insomnia</li>
+                        </ul>
+                </div>
+                <div class="parcours_card_software">
+                    <h3 class="oarcours_card_title">Compétences</h3>
+                        <ul>
+                            <li>VS Code</li>
+                            <li>Insomnia</li>
+                        </ul>
+                </div>
+            </div>
+        </a>
+    </div>
+        
+        
+        
+        
+        {# {% for parcour in parcours %}
             
                 <a class="parcours_index" href="{{ path('parcours_show', {'id': parcour.id}) }}) }}">{{ parcour.name }}</a>
             <br>
@@ -15,7 +100,7 @@
             </tr>
         {% endfor %}
         </tbody>
-    </table>
+    </table> #}
     <div>
         <a href="{{ path('parcours_new') }}">Create new</a>
     </div>

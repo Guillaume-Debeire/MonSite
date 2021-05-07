@@ -34,10 +34,16 @@ class Software
      */
     private $production;
 
+    /**
+     * @ORM\OneToMany(targetEntity=SoftwareParcours::class, mappedBy="software_id")
+     */
+    private $softwareParcours;
+
     public function __construct()
     {
         $this->parcours = new ArrayCollection();
         $this->production = new ArrayCollection();
+        $this->softwareParcours = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -108,5 +114,35 @@ class Software
     public function __toString()
     {
         return $this->name;
+    }
+
+    /**
+     * @return Collection|SoftwareParcours[]
+     */
+    public function getSoftwareParcours(): Collection
+    {
+        return $this->softwareParcours;
+    }
+
+    public function addSoftwareParcour(SoftwareParcours $softwareParcour): self
+    {
+        if (!$this->softwareParcours->contains($softwareParcour)) {
+            $this->softwareParcours[] = $softwareParcour;
+            $softwareParcour->setSoftwareId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSoftwareParcour(SoftwareParcours $softwareParcour): self
+    {
+        if ($this->softwareParcours->removeElement($softwareParcour)) {
+            // set the owning side to null (unless already changed)
+            if ($softwareParcour->getSoftwareId() === $this) {
+                $softwareParcour->setSoftwareId(null);
+            }
+        }
+
+        return $this;
     }
 }

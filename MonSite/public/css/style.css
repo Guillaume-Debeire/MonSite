@@ -35,6 +35,12 @@ body {
     font-size: small;
 }
 
+.header a:hover{
+    background-color: rgb(33, 62, 97);
+    color: rgb(255, 255, 255);
+    box-shadow: 0px 8px 10px 0px rgb(12, 28, 48);
+}
+
 .parcours_index {
     text-emphasis: none;
     text-decoration: none;
@@ -51,18 +57,97 @@ body {
     color: rgb(255, 255, 255);
     box-shadow: 0px 8px 10px 0px rgb(12, 28, 48);
 }
-
-
-.header a:hover{
-    background-color: rgb(33, 62, 97);
-    color: rgb(255, 255, 255);
-    box-shadow: 0px 8px 10px 0px rgb(12, 28, 48);
+.parcours_cards {
+    display: flex;
 }
 
+.parcours_card_1 {
+    width: 450px;
+    text-align: center;
+    margin: 2em auto 3em;
+    border-radius: 20px;
+    box-shadow: 0px 8px 20px 0px rgb(4, 10, 17);
+    text-decoration: none;
+}
+.parcours_card_1:hover{
+    background-color: rgb(25, 54, 90);
+}
+.parcours_card_2 {
+    width: 425px;
+    text-align: center;
+    margin: 2em auto 3em;
+    border-radius: 20px;
+    box-shadow: 0px 8px 20px 0px rgb(4, 10, 17);
+    text-decoration: none;
+}
+.parcours_card_2:hover{
+    background-color: rgb(25, 54, 90);
+}
+.parcours_card_header{
+
+    display: flex;
+    flex-direction: column;
+}
+
+.parcours_card_title {
+    padding: 1em 0 0 0;
+    margin: 0;
+}
+
+.parcours_card_duration {
+    padding: 0;
+    margin: 0;
+}
+
+.parcours_card_description {
+    padding: 1em 3em;
+}
+.parcours_card_footer {
+    display: flex;
+    flex-direction: row;
+}
+.parcours_card_software {
+    border: 1px solid white;
+    border-radius: 20px;
+    width: 40%;
+    margin: 1em auto;
+    text-align: center;
+}
+.parcours_card_super_footer {
+    margin: 1em;
+}
+.parcours_card_link {
+    text-decoration: none;
+}
+
+/* SHOW */
+
+.show_body {
+    display: flex;
+    width: 90%;
+    padding: auto;
+    margin: auto;
+}
+.show_left{
+    width: 20%;
+}
+.show_center {
+    width: 50%;
+    margin: 1em;
+}
+.show_right {
+    width: 20%;
+}
+.show_img {
+    width: 80px;
+    border-radius: 5px;
+}
 
 .footer_logo_pro {
     width: 40px;
     margin: 1em;
+    filter: saturate(0);
+    filter: hue-rotate(rgb(33, 62, 97));
 }
 
 .footer_logo_pro:hover {
@@ -72,14 +157,13 @@ body {
 .profile-pic {
     width : 40em;
 
-    border-radius: 20%;
-    border: 5px solid rgb(6, 14, 24);
-    box-shadow: 0px 8px 20px 1px rgb(72, 86, 105);
+    border-radius: 50%;
+    border: 3px solid rgb(6, 14, 24);
+    box-shadow: 0px 8px 20px 5px rgb(11, 22, 36);
 }
 
 .footer {
     text-align: center;
-    position: fixed;
     left: 100px; right: 100px; bottom: 10px;
 }
 

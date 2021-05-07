@@ -19,6 +19,25 @@ class ParcoursRepository extends ServiceEntityRepository
         parent::__construct($registry, Parcours::class);
     }
 
+    public function findSoftwareByParcours($id)
+    {
+        $entityManager = $this->getEntityManager();
+        $query = $entityManager->createQuery(
+            "
+            SELECT s
+            FROM App\Entity\Software s
+            JOIN App\Entity\SoftwareParcours q
+            WITH q.software_id = s.id
+            JOIN App\Entity\Parcours p
+            WITH p.id = q.parcours_id
+            WHERE p.id = :id
+            "
+        )->setParameter(':id', $id);
+
+
+        return $query->getResult();
+    }
+
     // /**
     //  * @return Parcours[] Returns an array of Parcours objects
     //  */

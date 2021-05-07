@@ -18,6 +18,7 @@ class ParcoursType extends AbstractType
             ->add('name')
             ->add('description', TextareaType::class)
             ->add('skill')
+            ->add('software')
         ;
     }
 

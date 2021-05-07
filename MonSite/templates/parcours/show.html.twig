@@ -3,7 +3,43 @@
 {% block title %}Parcours{% endblock %}
 
 {% block body %}
-    <header class="show_header">
+    <div class="show_page">
+        <header class="show_header">
+            <h1>O'Clock</h1>
+            <h4>Septembre 2020 -> Avril 2021</h4>
+        </header>
+        <div class="show_body">
+            <div class="show_left">
+                <div class="show_box">
+                    <h3>Informations</h3>
+
+                </div>
+                <div class="show_box">
+                    <h3>Logiciels</h3>
+                    <ul>
+                        <li>VS Code</li>
+                        <li>Insomnia</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="show_center">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi dolor perferendis quod maiores minus tempora! Impedit, suscipit possimus perferendis fuga, dignissimos quas cupiditate unde minus perspiciatis facilis ratione culpa laudantium!</p>
+            </div>
+            <div class="show_right">
+                <img class="show_img" src="{{ asset("assets/images/photos/guillaume.jpg") }}" alt="">
+                <img class="show_img" src="{{ asset("assets/images/photos/guillaume.jpg") }}" alt="">
+                <img class="show_img" src="{{ asset("assets/images/photos/guillaume.jpg") }}" alt="">
+                <img class="show_img" src="{{ asset("assets/images/photos/guillaume.jpg") }}" alt="">
+                <img class="show_img" src="{{ asset("assets/images/photos/guillaume.jpg") }}" alt="">
+                <img class="show_img" src="{{ asset("assets/images/photos/guillaume.jpg") }}" alt="">
+            </div>
+        </div>
+    </div>
+
+
+
+
+    {# <header class="show_header">
         <h1>{{ parcour.name }}</h1>
         <h3>Formation développeur web & web mobile  </h3>
     </header>
@@ -12,19 +48,19 @@
             <p>{{ parcour.description }}</p>
         </div>
         <div class="software_index">
-            
+            {{dump(parcour)}}
         </div>
         <div class="parcour_photo">
-            {# {{ for photo in photos }}
+            {{ for photo in photos }}
                 
-            {{ endfor }} #}
+            {{ endfor }}
         </div>
         {% if (parcour.YoutubeVideo is defined) %}
             <div>
                 <iframe class="youtube" width="560" height="315" src="{{ parcour.YoutubeVideo }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         {% endif %}
-    </body>
+    </body> #}
 
     <a href="{{ path('parcours') }}">back to list</a>
 
