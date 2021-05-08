@@ -1,11 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Audiovisuel index{% endblock %}
+{% block title %}Productions Audiovisuelles{% endblock %}
 
 {% block body %}
-    <h1>Audiovisuel index</h1>
+    <h1>Mes Productions Audiovisuelles</h1>
+        <div class= "production_index">
+            {% for audiovisuel in audiovisuels %}
+                        <a class="production_index_exemple" href="{{ path('audiovisuel_show', {'id': audiovisuel.id}) }}">{{ audiovisuel.name }}</a>
+            {% else %}
+                <tr>
+                    <td colspan="3">no records found</td>
+                </tr>
+            {% endfor %}
+            <a href="{{ path('exercice_new') }}">Create new</a>
 
-    <table class="table">
+        </div>
+    {# <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
@@ -29,7 +39,7 @@
             </tr>
         {% endfor %}
         </tbody>
-    </table>
+    </table> #}
 
     <a href="{{ path('audiovisuel_new') }}">Create new</a>
 {% endblock %}

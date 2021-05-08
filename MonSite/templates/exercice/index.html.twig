@@ -3,8 +3,18 @@
 {% block title %}Exercice index{% endblock %}
 
 {% block body %}
-    <h1>Exercice index</h1>
+    <h1>Mes Exercices</h1>
+        <div class= "production_index">
+            {% for exercice in exercices %}
+                        <a class="production_index_exemple" href="{{ path('exercice_show', {'id': exercice.id}) }}">{{ exercice.name }}</a>
+            {% else %}
+                <tr>
+                    <td colspan="3">no records found</td>
+                </tr>
+            {% endfor %}
+            <a href="{{ path('exercice_new') }}">Create new</a>
 
+        </div>
 
 
 
@@ -36,6 +46,4 @@
         {% endfor %}
         </tbody>
     </table> #}
-
-    <a href="{{ path('exercice_new') }}">Create new</a>
 {% endblock %}

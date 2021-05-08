@@ -3,9 +3,109 @@
 {% block title %}Exercice{% endblock %}
 
 {% block body %}
-    <h1>Exercice</h1>
+    <div class="show_page">
+        <header class="show_header">
+            <a class="button_back" href="{{ path('production') }}">Retour à la liste</a>
+            <div class="show_header_title">
+                <a class="nav_button" href="#">&#8249;</a>
+                <div>
+                    <h1>{{ exercice.name }}</h1>
+                </div>
+                
+                <a class="nav_button" href="#">&#8250;</a>
+            </div>
+            <h4>Application de référencement de films</h4>
+            <h5>Février 2021 -> Mars 2021</h5>
+        </header>
+        <div class="show_body">
+            <div class="show_left">
+                <div class="show_box">
+                    <h3 class="show_box_title">Informations</h3>
+                    <ul class="show_list">
+                        <li>hey@oclock.io</li>
+                        <li>09.74.76.80.67</li>
+                        <li>Spécialisation Symfony</li>
+                        <li></li>
+                        <li></li>
+                    </ul>
 
-    <table class="table">
+                </div>
+                <div class="show_box">
+                    <h3 class="show_box_title">Logiciels & Compétences</h3>
+                    <ul class="show_list">
+                        <li class="show_list_item">
+                            <div>VS Code</div>
+                            <div>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        </li>
+                        <li class="show_list_item">
+                            <div>Insomnia</div>
+                            <div>&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+                        </li>
+                    </ul>
+                    <ul class="show_list">
+                        <li class="show_list_item">
+                            <div>HTML/CSS</div>
+                            <div>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        </li>
+                        <li class="show_list_item">
+                            <div>PHP</div>
+                            <div>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        </li>
+                        <li class="show_list_item">
+                            <div>Javascript</div>
+                            <div>&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+                        </li>
+                    </ul>
+                    <ul class="show_list">
+                        <li class="show_list_item">
+                            <div>Symfony</div>
+                            <div>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        </li>
+                        <li class="show_list_item">
+                            <div>React</div>
+                            <div>&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+                        </li>
+                        <li class="show_list_item">
+                            <div>Bootstrap</div>
+                            <div>&#9733;&#9733;&#9733;&#9734;&#9734;</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="show_center">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi dolor perferendis quod maiores minus tempora! Impedit, suscipit possimus perferendis fuga, dignissimos quas cupiditate unde minus perspiciatis facilis ratione culpa laudantium!</p>
+                <h4>LOREM IPSUM DOLOR</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe quaerat nesciunt debitis error cum fugit omnis, iste esse soluta voluptatem provident quis accusamus! Labore odit praesentium beatae, ullam debitis rerum!</p>
+            </div>
+            <div class="show_right">
+                <div class="show_box">
+                    <h3 class="show_box_title">Productions</h3>
+                    <a class="production_card_link" href="">
+                        <div class="production_card_exemple">
+                            <h4>Nom de la production</h4>
+                        </div>
+                    </a>
+                    <a class="production_card_link" href="">
+                        <div class="production_card_exemple">
+                            <h4>Nom de la production</h4>
+                        </div>
+                    </a>
+                    <a class="production_card_link" href="">
+                        <div class="production_card_exemple">
+                            <h4>Nom de la production</h4>
+                        </div>
+                    </a>
+                    <a class="production_card_link" href="">
+                        <div class="production_card_exemple">
+                            <h4>Nom de la production</h4>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {# <table class="table">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -16,7 +116,7 @@
                 <td>{{ exercice.name }}</td>
             </tr>
         </tbody>
-    </table>
+    </table> #}
 
     <a href="{{ path('exercice_index') }}">back to list</a>
 
