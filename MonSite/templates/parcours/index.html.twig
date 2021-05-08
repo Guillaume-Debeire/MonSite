@@ -6,85 +6,132 @@
     <h1>Mon Parcours</h1>
     <div class="parcours_cards">
         
-        <a href="" class="parcours_card_2">
-            <div class="parcours_card_header">
+                <div class="parcours_card_2">
+            <a class="parcours_card_header" href="">
                 <h3 class="parcours_card_title">Bac S</h3>
-                <h5 class="parcours_card_duration">2011 ?</h4>
-                    <p class="parcours_card_description">La formation O'clock est une formation d'une durée de 6 mois comprenant 4 mois de socle et 2 mois de spécialisation.
-
-
-                    Durant le socle, j'ai pu totalement intégrer le HTML et le CSS. La formation était axée PHP mais j'ai également pu acquérir des notions de Javascript.</p>
-            </div>
+                <h4 class="parcours_card_subtitle">Option mathématiques</h4>
+                <h5 class="parcours_card_duration">2011</h4>
+                    <p class="parcours_card_description">Bac S Option Mathémathique obtenu par votre serviteur en 2011 à Toulouse. L'acheminement d'années de travail qui m'a mis sur la piste de l'informatique.</p>
+            </a>
             <div class="parcours_card_footer">
                 <div class="parcours_card_software">
-                    <h3 class="oarcours_card_title">Logiciels</h3>
-                        <ul class="show_list">
-                            <li>VS Code</li>
-                            <li>Insomnia</li>
-                        </ul>
+                    <h3 class="parcours_card_title">Logiciels</h3>
+                        <a class="production_card_link" href="">
+                            <div class="production_card_exemple">
+                            <h5 class="parcours_production_card">Nom du logiciel</h5>
+                            </div>
+                        </a>
+                        <a class="production_card_link" href="">
+                            <div class="production_card_exemple">
+                            <h5 class="parcours_production_card">Nom du logiciel</h5>
+                            </div>
+                        </a>
+                        <a class="production_card_link" href="">
+                            <div class="production_card_exemple">
+                            <h5 class="parcours_production_card">Nom du logiciel</h5>
+                            </div>
+                        </a>
                 </div>
                 <div class="parcours_card_software">
-                    <h3 class="oarcours_card_title">Compétences</h3>
-                        <ul class="show_list">
-                            <li>VS Code</li>
-                            <li>Insomnia</li>
-                        </ul>
+                    <h3 class="parcours_card_title">Productions</h3>
+                        <a class="production_card_link" href="">
+                            <div class="production_card_exemple">
+                            <h5 class="parcours_production_card">Nom de la production</h5>
+                            </div>
+                        </a>
+                        <a class="production_card_link" href="">
+                            <div class="production_card_exemple">
+                            <h5 class="parcours_production_card">Nom de la production</h5>
+                            </div>
+                        </a>
                 </div>
             </div>
-        
-        </a>
-        <a href="" class="parcours_card_1">
-            <div class="parcours_card_header">
+        </div>
+        <div class="parcours_card_1">
+            <a class="parcours_card_header" href="">
                 <h3 class="parcours_card_title">3iS</h3>
+                <h4 class="parcours_card_subtitle">Monteur du cinéma et de l'audiovisuel</h4>
                 <h5 class="parcours_card_duration">Septembre 2012 -> Juin 2015</h4>
-                    <p class="parcours_card_description">La formation O'clock est une formation d'une durée de 6 mois comprenant 4 mois de socle et 2 mois de spécialisation.
-
-
-                    Durant le socle, j'ai pu totalement intégrer le HTML et le CSS. La formation était axée PHP mais j'ai également pu acquérir des notions de Javascript.</p>
-            </div>
+                    <p class="parcours_card_description">3iS est une école de cinéma et d'audiovisuel qui m'a appris comment fonctionnent tous les métiers du cinéma. Je me suis par la suite spécialisé dans le montage.</p>
+            </a>
             <div class="parcours_card_footer">
                 <div class="parcours_card_software">
-                    <h3 class="oarcours_card_title">Logiciels</h3>
-                        <ul class="show_list">
-                            <li>VS Code</li>
-                            <li>Insomnia</li>
-                        </ul>
+                    <h3 class="parcours_card_title">Logiciels</h3>
+                        <a class="production_card_link" href="">
+                            <div class="production_card_exemple">
+                            <h5 class="parcours_production_card">Nom du logiciel</h5>
+                            </div>
+                        </a>
+                        <a class="production_card_link" href="">
+                            <div class="production_card_exemple">
+                            <h5 class="parcours_production_card">Nom du logiciel</h5>
+                            </div>
+                        </a>
+                        <a class="production_card_link" href="">
+                            <div class="production_card_exemple">
+                            <h5 class="parcours_production_card">Nom du logiciel</h5>
+                            </div>
+                        </a>
                 </div>
                 <div class="parcours_card_software">
-                    <h3 class="oarcours_card_title">Compétences</h3>
-                        <ul class="show_list">
-                            <li>VS Code</li>
-                            <li>Insomnia</li>
-                        </ul>
+                    <h3 class="parcours_card_title">Productions</h3>
+                        <a class="production_card_link" href="">
+                            <div class="production_card_exemple">
+                            <h5 class="parcours_production_card">Nom de la production</h5>
+                            </div>
+                        </a>
+                        <a class="production_card_link" href="">
+                            <div class="production_card_exemple">
+                            <h5 class="parcours_production_card">Nom de la production</h5>
+                            </div>
+                        </a>
                 </div>
             </div>
-        </a>
-        <a href="" class="parcours_card_2">
-            <div class="parcours_card_header">
+        </div>
+                <div class="parcours_card_2">
+            <a class="parcours_card_header" href="{{ path('parcours_show', {'id': "1"}) }}">
                 <h3 class="parcours_card_title">O'Clock</h3>
+                <h4 class="parcours_card_subtitle">Développeur web & web mobile</h4>
                 <h5 class="parcours_card_duration">Septembre 2020 -> Avril 2021</h4>
                     <p class="parcours_card_description">La formation O'clock est une formation d'une durée de 6 mois comprenant 4 mois de socle et 2 mois de spécialisation.
 
 
                     Durant le socle, j'ai pu totalement intégrer le HTML et le CSS. La formation était axée PHP mais j'ai également pu acquérir des notions de Javascript.</p>
-            </div>
+            </a>
             <div class="parcours_card_footer">
                 <div class="parcours_card_software">
-                    <h3 class="oarcours_card_title">Logiciels</h3>
-                        <ul class="show_list">
-                            <li>VS Code</li>
-                            <li>Insomnia</li>
-                        </ul>
+                    <h3 class="parcours_card_title">Logiciels</h3>
+                        <a class="production_card_link" href="">
+                            <div class="production_card_exemple">
+                            <h5 class="parcours_production_card">Nom du logiciel</h5>
+                            </div>
+                        </a>
+                        <a class="production_card_link" href="">
+                            <div class="production_card_exemple">
+                            <h5 class="parcours_production_card">Nom du logiciel</h5>
+                            </div>
+                        </a>
+                        <a class="production_card_link" href="">
+                            <div class="production_card_exemple">
+                            <h5 class="parcours_production_card">Nom du logiciel</h5>
+                            </div>
+                        </a>
                 </div>
                 <div class="parcours_card_software">
-                    <h3 class="oarcours_card_title">Compétences</h3>
-                        <ul class="show_list">
-                            <li>VS Code</li>
-                            <li>Insomnia</li>
-                        </ul>
+                    <h3 class="parcours_card_title">Productions</h3>
+                        <a class="production_card_link" href="">
+                            <div class="production_card_exemple">
+                            <h5 class="parcours_production_card">Nom de la production</h5>
+                            </div>
+                        </a>
+                        <a class="production_card_link" href="">
+                            <div class="production_card_exemple">
+                            <h5 class="parcours_production_card">Nom de la production</h5>
+                            </div>
+                        </a>
                 </div>
             </div>
-        </a>
+        </div>
     </div>
         
         

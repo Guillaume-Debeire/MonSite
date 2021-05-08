@@ -23,11 +23,6 @@ class Picture
     private $path;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Production::class, inversedBy="pictures")
-     */
-    private $production;
-
-    /**
      * @ORM\ManyToOne(targetEntity=Parcours::class, inversedBy="pictures")
      */
     private $parcours;
@@ -45,18 +40,6 @@ class Picture
     public function setPath(string $path): self
     {
         $this->path = $path;
-
-        return $this;
-    }
-
-    public function getProduction(): ?Production
-    {
-        return $this->production;
-    }
-
-    public function setProduction(?Production $production): self
-    {
-        $this->production = $production;
 
         return $this;
     }

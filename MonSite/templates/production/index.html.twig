@@ -4,16 +4,106 @@
 
 {% block body %}
     <h1>Mes Productions</h1>
-
-        {% for production in productions %}
+    <div class="parcours_cards">
+        <div class="parcours_card_2">
+            <a class="production_card_header"href="{{ path('exercice_index') }}">
+                    <h3 class="production_card_title">Exercices</h3>
+            </a>
+            
+            <div class="production_card_footer">
+                <a class="production_card_link" href="">
+                    <div class="production_card_exemple">
+                        <h4>Nom de la production</h4>
+                    </div>
+                </a>
+                <a class="production_card_link" href="">
+                    <div class="production_card_exemple">
+                        <h4>Nom de la production</h4>
+                    </div>
+                </a>
+                <a class="production_card_link" href="">
+                    <div class="production_card_exemple">
+                        <h4>Nom de la production</h4>
+                    </div>
+                </a>
+                <a class="production_card_link" href="">
+                    <div class="production_card_exemple">
+                        <h4>Nom de la production</h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        <div class="parcours_card_1">
+            <a class="production_card_header"href="{{ path('application_index') }}">
+                    <h3 class="production_card_title">Sites & Applications</h3>
+            </a>
+            
+            <div class="production_card_footer">
+                <a class="production_card_link" href="">
+                    <div class="production_card_exemple">
+                        <h4>Nom de la production</h4>
+                    </div>
+                </a>
+                <a class="production_card_link" href="">
+                    <div class="production_card_exemple">
+                        <h4>Nom de la production</h4>
+                    </div>
+                </a>
+                <a class="production_card_link" href="">
+                    <div class="production_card_exemple">
+                        <h4>Nom de la production</h4>
+                    </div>
+                </a>
+                <a class="production_card_link" href="">
+                    <div class="production_card_exemple">
+                        <h4>Nom de la production</h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="parcours_card_2">
+            <a class="production_card_header"href="{{ path('audiovisuel_index') }}">
+                    <h3 class="production_card_title">Contenu Audiovisuel</h3>
+            </a>
+            
+            <div class="production_card_footer">
+                <a class="production_card_link" href="">
+                    <div class="production_card_exemple">
+                        <h4>Nom de la production</h4>
+                    </div>
+                </a>
+                <a class="production_card_link" href="">
+                    <div class="production_card_exemple">
+                        <h4>Nom de la production</h4>
+                    </div>
+                </a>
+                <a class="production_card_link" href="">
+                    <div class="production_card_exemple">
+                        <h4>Nom de la production</h4>
+                    </div>
+                </a>
+                <a class="production_card_link" href="">
+                    <div class="production_card_exemple">
+                        <h4>Nom de la production</h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+        
+        
+        
+        
+        
+        
+        {# {% for production in productions %}
             <a class="parcours_index" href="{{ path('production_show', {'id': production.id}) }}) }}">{{ production.name }}</a>
         {% else %}
             <tr>
                 <td colspan="7">no records found</td>
             </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        {% endfor %} #}
     <div>
         <a href="{{ path('production_new') }}">Create new</a>
     </div>

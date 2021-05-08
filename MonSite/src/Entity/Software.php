@@ -29,16 +29,6 @@ class Software
      */
     private $parcours;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Production::class, inversedBy="software")
-     */
-    private $production;
-
-    /**
-     * @ORM\OneToMany(targetEntity=SoftwareParcours::class, mappedBy="software_id")
-     */
-    private $softwareParcours;
-
     public function __construct()
     {
         $this->parcours = new ArrayCollection();
@@ -86,63 +76,10 @@ class Software
 
         return $this;
     }
-
-    /**
-     * @return Collection|Production[]
-     */
-    public function getProduction(): Collection
-    {
-        return $this->production;
-    }
-
-    public function addProduction(Production $production): self
-    {
-        if (!$this->production->contains($production)) {
-            $this->production[] = $production;
-        }
-
-        return $this;
-    }
-
-    public function removeProduction(Production $production): self
-    {
-        $this->production->removeElement($production);
-
-        return $this;
-    }
-
+    
     public function __toString()
     {
         return $this->name;
     }
 
-    /**
-     * @return Collection|SoftwareParcours[]
-     */
-    public function getSoftwareParcours(): Collection
-    {
-        return $this->softwareParcours;
-    }
-
-    public function addSoftwareParcour(SoftwareParcours $softwareParcour): self
-    {
-        if (!$this->softwareParcours->contains($softwareParcour)) {
-            $this->softwareParcours[] = $softwareParcour;
-            $softwareParcour->setSoftwareId($this);
-        }
-
-        return $this;
-    }
-
-    public function removeSoftwareParcour(SoftwareParcours $softwareParcour): self
-    {
-        if ($this->softwareParcours->removeElement($softwareParcour)) {
-            // set the owning side to null (unless already changed)
-            if ($softwareParcour->getSoftwareId() === $this) {
-                $softwareParcour->setSoftwareId(null);
-            }
-        }
-
-        return $this;
-    }
 }

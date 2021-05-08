@@ -30,29 +30,14 @@ class Parcours
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $skill;
-
-    /**
      * @ORM\OneToMany(targetEntity=Picture::class, mappedBy="parcours")
      */
     private $pictures;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $YoutubeVideo;
-
-    /**
      * @ORM\ManyToMany(targetEntity=Software::class, mappedBy="parcours")
      */
     private $software;
-
-    /**
-     * @ORM\OneToMany(targetEntity=SoftwareParcours::class, mappedBy="parcours_id")
-     */
-    private $softwareParcours;
 
     public function __construct()
     {
@@ -89,18 +74,6 @@ class Parcours
 
         return $this;
     }
-
-    public function getSkill(): ?string
-    {
-        return $this->skill;
-    }
-
-    public function setSkill(?string $skill): self
-    {
-        $this->skill = $skill;
-
-        return $this;
-    }
     
     /**
      * @return Collection|Picture[]
@@ -128,18 +101,6 @@ class Parcours
                 $picture->setParcours(null);
             }
         }
-
-        return $this;
-    }
-
-    public function getYoutubeVideo(): ?string
-    {
-        return $this->YoutubeVideo;
-    }
-
-    public function setYoutubeVideo(?string $YoutubeVideo): self
-    {
-        $this->YoutubeVideo = $YoutubeVideo;
 
         return $this;
     }
@@ -176,33 +137,4 @@ class Parcours
         return $this->name;
     }
 
-    /**
-     * @return Collection|SoftwareParcours[]
-     */
-    public function getSoftwareParcours(): Collection
-    {
-        return $this->softwareParcours;
-    }
-
-    public function addSoftwareParcour(SoftwareParcours $softwareParcour): self
-    {
-        if (!$this->softwareParcours->contains($softwareParcour)) {
-            $this->softwareParcours[] = $softwareParcour;
-            $softwareParcour->setParcoursId($this);
-        }
-
-        return $this;
-    }
-
-    public function removeSoftwareParcour(SoftwareParcours $softwareParcour): self
-    {
-        if ($this->softwareParcours->removeElement($softwareParcour)) {
-            // set the owning side to null (unless already changed)
-            if ($softwareParcour->getParcoursId() === $this) {
-                $softwareParcour->setParcoursId(null);
-            }
-        }
-
-        return $this;
-    }
 }
