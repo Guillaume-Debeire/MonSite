@@ -48,11 +48,11 @@
             </div>
         </div>
         <div class="parcours_card_1">
-            <a class="parcours_card_header" href="">
-                <h3 class="parcours_card_title">3iS</h3>
-                <h4 class="parcours_card_subtitle">Monteur du cinéma et de l'audiovisuel</h4>
-                <h5 class="parcours_card_duration">Septembre 2012 -> Juin 2015</h4>
-                    <p class="parcours_card_description">3iS est une école de cinéma et d'audiovisuel qui m'a appris comment fonctionnent tous les métiers du cinéma. Je me suis par la suite spécialisé dans le montage.</p>
+            <a class="parcours_card_header" href="{{ path('parcours_show', {'id': "2"}) }}">
+                <h3 class="parcours_card_title">{{ parcours.1.name }}</h3>
+                <h4 class="parcours_card_subtitle">{{ parcours.1.subtitle }}</h4>
+                <h5 class="parcours_card_duration">{{ parcours.1.dateDebut }} -> {{ parcours.1.dateFin }}</h4>
+                    <p class="parcours_card_description">{{ parcours.1.description }}</p>
             </a>
             <div class="parcours_card_footer">
                 <div class="parcours_card_software">

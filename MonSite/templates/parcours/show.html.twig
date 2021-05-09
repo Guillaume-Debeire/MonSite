@@ -5,9 +5,16 @@
 {% block body %}
     <div class="show_page">
         <header class="show_header">
-            <h1>O'Clock</h1>
-            <h4> Développeur web & web mobile</h4>
-            <h5>Septembre 2020 -> Avril 2021</h5>
+            <div class="show_header_title">
+                <a class="nav_button" href="{{ path('parcours_show', {'id': "1"}) }}">&#8249;</a>
+                <div>
+                    <h1>{{ parcour.name }}</h1>
+                </div>
+                
+                <a class="nav_button" href="{{ path('parcours_show', {'id': "1"}) }}">&#8250;</a>
+            </div>
+            <h4>{{ parcour.subtitle }}</h4>
+            <h5>{{ parcour.dateDebut }} -> {{ parcour.dateFin }}</h5>
         </header>
         <div class="show_body">
             <div class="show_left">
@@ -65,23 +72,23 @@
                 </div>
             </div>
             <div class="show_center">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi dolor perferendis quod maiores minus tempora! Impedit, suscipit possimus perferendis fuga, dignissimos quas cupiditate unde minus perspiciatis facilis ratione culpa laudantium!</p>
-                <h4>LOREM IPSUM DOLOR</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe quaerat nesciunt debitis error cum fugit omnis, iste esse soluta voluptatem provident quis accusamus! Labore odit praesentium beatae, ullam debitis rerum!</p>
-                <h4>LOREM IPSUM DOLOR</h4>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur illo recusandae possimus illum similique voluptas esse perspiciatis, exercitationem quibusdam repellat sint. Repellat a velit magnam nemo molestiae, tenetur nulla iste?</p>
+                <p>{{ parcour.intro }}</p>
+                <h4>{{ parcour.title1 }}</h4>
+                <p>{{ parcour.text1 }}</p>
+                <h4>{{ parcour.title2 }}</h4>
+                <p>{{ parcour.text2 }}</p>
             </div>
             <div class="show_right">
                 <div class="show_box">
                     <h3 class="show_box_title">Productions</h3>
-                    <a class="production_card_link" href="">
+                    <a class="production_card_link" href="{{ path('application_show', {'id': "1"}) }}">
                         <div class="production_card_exemple">
-                            <h4>Nom de la production</h4>
+                            <h4>Plantopia</h4>
                         </div>
                     </a>
-                    <a class="production_card_link" href="">
+                    <a class="production_card_link" href="{{ path('exercice_show', {'id': "1"}) }}">
                         <div class="production_card_exemple">
-                            <h4>Nom de la production</h4>
+                            <h4>MovieDB</h4>
                         </div>
                     </a>
                     <a class="production_card_link" href="">
@@ -92,7 +99,7 @@
                 </div>
                 <div class="show_box">
                     
-                    <h3 class="show_box_title">Photos</h3>
+                    <h3 class="show_box_title">Documents</h3>
                     <div class="show_box_img">
                         <img class="show_img" src="{{ asset("assets/images/photos/guillaume.jpg") }}" alt="">
                         <img class="show_img" src="{{ asset("assets/images/photos/guillaume.jpg") }}" alt="">

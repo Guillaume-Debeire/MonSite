@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20210509093320 extends AbstractMigration
+final class Version20210509222426 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,12 +20,12 @@ final class Version20210509093320 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE audiovisuel ADD date_debut DATE DEFAULT NULL, ADD date_fin DATE DEFAULT NULL, ADD type VARCHAR(255) DEFAULT NULL, ADD link VARCHAR(255) DEFAULT NULL');
+        $this->addSql('ALTER TABLE parcours ADD subtitle VARCHAR(255) DEFAULT NULL, ADD date_debut VARCHAR(255) DEFAULT NULL, ADD date_fin VARCHAR(255) DEFAULT NULL');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE audiovisuel DROP date_debut, DROP date_fin, DROP type, DROP link');
+        $this->addSql('ALTER TABLE parcours DROP subtitle, DROP date_debut, DROP date_fin');
     }
 }

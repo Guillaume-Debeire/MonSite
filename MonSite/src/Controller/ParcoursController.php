@@ -52,7 +52,7 @@ class ParcoursController extends AbstractController
     /**
      * @Route("/{id}", name="parcours_show", methods={"GET"})
      */
-    public function show(Parcours $parcour, Software $software, ParcoursRepository $parcoursRepo): Response
+    public function show(Parcours $parcour, ParcoursRepository $parcoursRepo): Response
     {   
         return $this->render('parcours/show.html.twig', [
             'parcour' => $parcour

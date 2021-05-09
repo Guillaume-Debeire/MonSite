@@ -39,6 +39,46 @@ class Parcours
      */
     private $software;
 
+    /**
+     * @ORM\Column(type="string", length=600, nullable=true)
+     */
+    private $intro;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $title1;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $title2;
+
+    /**
+     * @ORM\Column(type="string", length=1000, nullable=true)
+     */
+    private $text1;
+
+    /**
+     * @ORM\Column(type="string", length=1000, nullable=true)
+     */
+    private $text2;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $subtitle;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $date_debut;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $date_fin;
+
     public function __construct()
     {
         $this->pictures = new ArrayCollection();
@@ -135,6 +175,102 @@ class Parcours
     public function __toString()
     {
         return $this->name;
+    }
+
+    public function getIntro(): ?string
+    {
+        return $this->intro;
+    }
+
+    public function setIntro(?string $intro): self
+    {
+        $this->intro = $intro;
+
+        return $this;
+    }
+
+    public function getTitle1(): ?string
+    {
+        return $this->title1;
+    }
+
+    public function setTitle1(?string $title1): self
+    {
+        $this->title1 = $title1;
+
+        return $this;
+    }
+
+    public function getTitle2(): ?string
+    {
+        return $this->title2;
+    }
+
+    public function setTitle2(?string $title2): self
+    {
+        $this->title2 = $title2;
+
+        return $this;
+    }
+
+    public function getText1(): ?string
+    {
+        return $this->text1;
+    }
+
+    public function setText1(?string $text1): self
+    {
+        $this->text1 = $text1;
+
+        return $this;
+    }
+
+    public function getText2(): ?string
+    {
+        return $this->text2;
+    }
+
+    public function setText2(?string $text2): self
+    {
+        $this->text2 = $text2;
+
+        return $this;
+    }
+
+    public function getSubtitle(): ?string
+    {
+        return $this->subtitle;
+    }
+
+    public function setSubtitle(?string $subtitle): self
+    {
+        $this->subtitle = $subtitle;
+
+        return $this;
+    }
+
+    public function getDateDebut(): ?string
+    {
+        return $this->date_debut;
+    }
+
+    public function setDateDebut(?string $date_debut): self
+    {
+        $this->date_debut = $date_debut;
+
+        return $this;
+    }
+
+    public function getDateFin(): ?string
+    {
+        return $this->date_fin;
+    }
+
+    public function setDateFin(?string $date_fin): self
+    {
+        $this->date_fin = $date_fin;
+
+        return $this;
     }
 
 }
