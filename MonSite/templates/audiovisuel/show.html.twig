@@ -14,11 +14,11 @@
                 
                 <a class="nav_button" href="#">&#8250;</a>
             </div>
-            <h4>Clip vidéo</h4>
-            <h5>mai 2016</h5>
+            <h4>{{ audiovisuel.type }}</h4>
+            <h5>{{ audiovisuel.dateDebut }} -> {{ audiovisuel.dateFin }}</h5>
         </header>
         <div class="show_body">
-            <div class="show_left">
+            {# <div class="show_left">
                 <div class="show_box">
                     <h3 class="show_box_title">Informations</h3>
                     <ul class="show_list">
@@ -31,47 +31,40 @@
 
                 </div>
                 <div class="show_box">
-                    <h3 class="show_box_title">Logiciels & Compétences</h3>
+                    <h3 class="show_box_title">Rôles & Compétences</h3>
                     <ul class="show_list">
-                        <li class="show_list_item">
-                            <div>Adobe Premiere Pro</div>
-                            <div>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <li>
+                            Adobe Premiere Pro
                         </li>
                     </ul>
                     <ul class="show_list">
-                        <li class="show_list_item">
-                            <div>Derush</div>
-                            <div>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <li>
+                            Derush
                         </li>
-                        <li class="show_list_item">
-                            <div>Montage</div>
-                            <div>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <li>
+                            Montage
                         </li>
-                        <li class="show_list_item">
-                            <div>Etalonnage</div>
-                            <div>&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+                        <li>
+                            Etalonnage
                         </li>
                     </ul>
                     <ul class="show_list">
-                        <li class="show_list_item">
-                            <div>Symfony</div>
-                            <div>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <li>
+                            Symfony
                         </li>
-                        <li class="show_list_item">
-                            <div>React</div>
-                            <div>&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+                        <li>
+                            React
                         </li>
-                        <li class="show_list_item">
-                            <div>Bootstrap</div>
-                            <div>&#9733;&#9733;&#9733;&#9734;&#9734;</div>
+                        <li>
+                            Bootstrap
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div> #}
             <div class="show_center">
-                <iframe class="youtube" width="560" height="315" src="https://www.youtube.com/embed/4BHtHeE7BSk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe class="youtube" width="560" height="315" src="{{ audiovisuel.link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            <div class="show_right">
+            {# <div class="show_right">
                 <div class="show_box">
                     <h3 class="show_box_title">Productions</h3>
                     <a class="production_card_link" href="">
@@ -95,7 +88,7 @@
                         </div>
                     </a>
                 </div>
-            </div>
+            </div> #}
         </div>
     </div>
 
@@ -114,9 +107,6 @@
         </tbody>
     </table> #}
 
-    <a href="{{ path('audiovisuel_index') }}">back to list</a>
-
-    <a href="{{ path('audiovisuel_edit', {'id': audiovisuel.id}) }}">edit</a>
 
     {{ include('audiovisuel/_delete_form.html.twig') }}
 {% endblock %}

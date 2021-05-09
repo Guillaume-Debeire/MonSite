@@ -203,8 +203,10 @@ body {
     width: 15%;
 }
 .show_center {
+    text-align: center;
     width: 65%;
-    margin: 1em 2em;
+    margin: auto;
+    padding: 1em 2em
 }
 .show_right {
     width: 15%;

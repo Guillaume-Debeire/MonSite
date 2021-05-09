@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Production;
 use App\Form\ProductionType;
+use App\Repository\AudiovisuelRepository;
 use App\Repository\ProductionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,10 +19,12 @@ class ProductionController extends AbstractController
     /**
      * @Route("/", name="production", methods={"GET"})
      */
-    public function index(ProductionRepository $productionRepository): Response
+    public function index(ProductionRepository $productionRepository, AudiovisuelRepository $audiovisuelRepository): Response
     {
+        $audiovisuel = $audiovisuelRepository->findAll();
         return $this->render('production/index.html.twig', [
             'productions' => $productionRepository->findAll(),
+            'audiovisuels' => $audiovisuel
         ]);
     }
 

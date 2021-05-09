@@ -70,22 +70,22 @@
             <div class="production_card_footer">
                 <a class="production_card_link" href="{{ path('audiovisuel_show', {'id': "1"}) }}">
                     <div class="production_card_exemple">
-                        <h4>MZ - Noir c'est noir</h4>
+                        <h4>{{ audiovisuels.0.name }}</h4>
                     </div>
                 </a>
-                <a class="production_card_link" href="">
+                <a class="production_card_link" href="{{ path('audiovisuel_show', {'id': "2"}) }}">
                     <div class="production_card_exemple">
-                        <h4>Nom du contenu audiovisuel</h4>
+                        <h4>{{ audiovisuels.1.name }}</h4>
+                    </div>
+                </a>    
+                <a class="production_card_link" href="{{ path('audiovisuel_show', {'id': "3"}) }}">
+                    <div class="production_card_exemple">
+                        <h4>{{ audiovisuels.2.name }}</h4>
                     </div>
                 </a>
-                <a class="production_card_link" href="">
+                <a class="production_card_link" href="{{ path('audiovisuel_show', {'id': "4"}) }}">
                     <div class="production_card_exemple">
-                        <h4>Nom du contenu audiovisuel</h4>
-                    </div>
-                </a>
-                <a class="production_card_link" href="">
-                    <div class="production_card_exemple">
-                        <h4>Nom du contenu audiovisuel</h4>
+                        <h4>{{ audiovisuels.3.name }}</h4>
                     </div>
                 </a>
             </div>
