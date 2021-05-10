@@ -1,10 +1,11 @@
-{% extends 'base.html.twig' %}
+{% extends 'base.parcours.html.twig' %}
 
 {% block title %}Parcours{% endblock %}
 
 {% block body %}
     <div class="show_page">
         <header class="show_header">
+            <a class="button_back" href="{{ path('parcours') }}">Retour à la liste</a>
             <div class="show_header_title">
                 <a class="nav_button" href="{{ path('parcours_show', {'id': "1"}) }}">&#8249;</a>
                 <div>
@@ -21,52 +22,51 @@
                 <div class="show_box">
                     <h3 class="show_box_title">Informations</h3>
                     <ul class="show_list">
-                        <li>hey@oclock.io</li>
-                        <li><a href="tel:09.74.76.80.67">09.74.76.80.67</a></li>
-                        <li>Spécialisation Symfony</li>
-                        <li></li>
+                        <li>{{ parcour.email }}</li>
+                        <li><a href="tel:{{ parcour.phone }}">{{ parcour.phone }}</a></li>
+                        <li>{{ parcour.adress }}</li>
+                        <li>{{ parcour.specialization }}</li>
                         <li></li>
                     </ul>
 
                 </div>
                 <div class="show_box">
                     <h3 class="show_box_title">Logiciels & Compétences</h3>
+                    
                     <ul class="show_list">
+                    {% for software in softwares %}
                         <li class="show_list_item">
-                            <div>VS Code</div>
-                            <div>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                            <div>{{ software.name }}</div>
+                            {# <div>&#9733;&#9733;&#9733;&#9733;&#9733;</div> #}
                         </li>
-                        <li class="show_list_item">
-                            <div>Insomnia</div>
-                            <div>&#9733;&#9733;&#9733;&#9733;&#9734;</div>
-                        </li>
+                    {% endfor %}
                     </ul>
                     <ul class="show_list">
                         <li class="show_list_item">
                             <div>HTML/CSS</div>
-                            <div>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                            {# <div>&#9733;&#9733;&#9733;&#9733;&#9733;</div> #}
                         </li>
                         <li class="show_list_item">
                             <div>PHP</div>
-                            <div>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                            {# <div>&#9733;&#9733;&#9733;&#9733;&#9733;</div> #}
                         </li>
                         <li class="show_list_item">
                             <div>Javascript</div>
-                            <div>&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+                            {# <div>&#9733;&#9733;&#9733;&#9733;&#9734;</div> #}
                         </li>
                     </ul>
                     <ul class="show_list">
                         <li class="show_list_item">
                             <div>Symfony</div>
-                            <div>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                            {# <div>&#9733;&#9733;&#9733;&#9733;&#9733;</div> #}
                         </li>
                         <li class="show_list_item">
                             <div>React</div>
-                            <div>&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+                            {# <div>&#9733;&#9733;&#9733;&#9733;&#9734;</div> #}
                         </li>
                         <li class="show_list_item">
                             <div>Bootstrap</div>
-                            <div>&#9733;&#9733;&#9733;&#9734;&#9734;</div>
+                            {# <div>&#9733;&#9733;&#9733;&#9734;&#9734;</div> #}
                         </li>
                     </ul>
                 </div>
@@ -81,21 +81,25 @@
             <div class="show_right">
                 <div class="show_box">
                     <h3 class="show_box_title">Productions</h3>
-                    <a class="production_card_link" href="{{ path('application_show', {'id': "1"}) }}">
-                        <div class="production_card_exemple">
-                            <h4>Plantopia</h4>
-                        </div>
-                    </a>
-                    <a class="production_card_link" href="{{ path('exercice_show', {'id': "1"}) }}">
+                        {% for production in productions %}
+                            {# {{dump(production)}} #}
+                            
+                            <a class="production_card_link" href="{{ path("absolute") }}{{production.description}}/{{ production.exercice_id }}{{ production.application_id }}{{ production.audiovisuel_id }}">
+                                <div class="production_card_exemple">
+                                    <h4>{{ production.name }}</h4>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    {# <a class="production_card_link" href="{{ path('exercice_show', {'id': "1"}) }}">
                         <div class="production_card_exemple">
                             <h4>MovieDB</h4>
                         </div>
                     </a>
                     <a class="production_card_link" href="">
                         <div class="production_card_exemple">
-                            <h4>Nom de la production</h4>
+                            <h4></h4>
                         </div>
-                    </a>
+                    </a> #}
                 </div>
                 <div class="show_box">
                     

@@ -6,6 +6,8 @@ use App\Entity\Parcours;
 use App\Entity\Software;
 use App\Form\ParcoursType;
 use App\Repository\ParcoursRepository;
+use App\Repository\ProductionRepository;
+use App\Repository\SoftwareRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,10 +21,13 @@ class ParcoursController extends AbstractController
     /**
      * @Route("/", name="parcours", methods={"GET"})
      */
-    public function index(ParcoursRepository $parcoursRepository): Response
+    public function index(ParcoursRepository $parcoursRepository, ProductionRepository $productionRepository): Response
     {
         return $this->render('parcours/index.html.twig', [
             'parcours' => $parcoursRepository->findAll(),
+            'oclockExercices' => $productionRepository->findExerciceByParcours("O'Clock"),
+            'oclockApplications' => $productionRepository->findApplicationByParcours("O'Clock"),
+            'cinemaAudiovisuels' => $productionRepository->findAudiovisuelByParcours("3iS")
         ]);
     }
 
@@ -52,10 +57,12 @@ class ParcoursController extends AbstractController
     /**
      * @Route("/{id}", name="parcours_show", methods={"GET"})
      */
-    public function show(Parcours $parcour, ParcoursRepository $parcoursRepo): Response
+    public function show(Parcours $parcour, ParcoursRepository $parcoursRepo, ProductionRepository $productionRepository, SoftwareRepository $softwareRepository): Response
     {   
         return $this->render('parcours/show.html.twig', [
-            'parcour' => $parcour
+            'parcour' => $parcour,
+            'softwares' => $softwareRepository->findSoftwareByParcours($parcour->getId()),
+            'productions' => $productionRepository->findProductionByParcours($parcour->getId())
         ]);
     }
 

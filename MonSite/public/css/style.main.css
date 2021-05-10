@@ -1,9 +1,9 @@
 html{
-    background: linear-gradient(rgb(245, 251, 255), rgb(212, 232, 245), rgb(245, 251, 255));
+    background: linear-gradient(rgb(235, 235, 235), rgb(221, 214, 214), rgb(235, 235, 235));
 }
 
 a {
-    color: rgb(43, 107, 150)
+    color: rgb(39, 39, 39);
 }
 body {
     font-family: 'Montserrat', sans-serif;
@@ -11,7 +11,7 @@ body {
     margin: auto;
     padding: auto;
     text-align: center;
-    color: rgb(43, 107, 150)
+    color: rgb(48, 40, 40)
 }
 
 
@@ -28,7 +28,7 @@ body {
     text-decoration: none;
     text-emphasis: none;
     text-align: center;
-    color: rgb(4, 49, 105);
+    color: rgb(48, 40, 40);
     border-radius: 8px;
     padding: 9px 15px;
     margin: 0 0,5em;
@@ -50,7 +50,7 @@ body {
 .parcours_index {
     text-emphasis: none;
     text-decoration: none;
-    color: rgb(43, 107, 150);
+    color: rgb(177, 212, 255);
     font-size: 40px;
     padding: 7px 15px;
     border-radius: 10px;
@@ -75,12 +75,12 @@ body {
     text-align: center;
     margin: 2em auto 3em;
     border-radius: 20px;
-    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.514);
+    box-shadow: 0px 8px 20px 0px rgb(4, 10, 17);
     text-decoration: none;
 }
-/* .parcours_card_1:hover{
+.parcours_card_1:hover{
     background-color: rgb(25, 54, 90);
-} */
+}
 .parcours_card_2 {
     display: flex;
     flex-direction: column;
@@ -88,13 +88,13 @@ body {
     text-align: center;
     margin: 2em auto 3em;
     border-radius: 20px;
-    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.514);
+    box-shadow: 0px 8px 20px 0px rgb(4, 10, 17);
     text-decoration: none;
     justify-content: space-between;
 }
-/* .parcours_card_2:hover{
+.parcours_card_2:hover{
     background-color: rgb(25, 54, 90);
-} */
+}
 .parcours_card_header{
 
     display: flex;
@@ -148,7 +148,7 @@ body {
     justify-content: space-around;
 }
 .production_index_exemple {
-    color:  rgb(43, 107, 150);
+    color:  rgb(177, 212, 255);
     text-decoration: none;
     font-size: 40px;
     padding: 10px 20px;
@@ -167,14 +167,14 @@ body {
 
 }
 .production_card_title {
-    color: rgb(43, 107, 150);
+    color: white;
     padding: 1em 0;
     margin: 0;
-    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.308);
+    box-shadow: 0px 4px 10px 2px rgb(11, 29, 49);
     border-radius: 20px 20px 0 0;
 }
 .production_card_title:hover {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(50, 99, 158);
 }
 
 .production_card_exemple {
@@ -185,7 +185,7 @@ body {
     padding: 1px 0;
 }
 .production_card_exemple:hover {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(46, 72, 104);
 }
 .production_card_link {
     text-decoration: none;
@@ -269,8 +269,6 @@ body {
 .footer_logo_pro {
     width: 40px;
     margin: 1em;
-    filter: saturate(0);
-    filter: hue-rotate(rgb(33, 62, 97));
 }
 
 .footer_logo_pro:hover {
@@ -281,8 +279,11 @@ body {
     width : 40em;
 
     border-radius: 50%;
-    border: 3px solid rgb(6, 14, 24);
-    box-shadow: 0px 8px 20px 5px rgb(11, 22, 36);
+    /* border: 3px solid rgb(24, 24, 24); */
+    box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.404);
+    filter: 
+        saturate(70%)
+        brightness(130%);
 }
 
 .footer {
@@ -306,79 +307,10 @@ body {
     .profile-pic {
         width: 200px;
     }
-    .parcours_cards {
-        flex-direction: column;
-        
-    }
-    .parcours_card_1 {
-        width: 80%;
-        margin: 2em auto;
-    }
-    .parcours_card_2 {
-        width: 80%;
-        margin: 2em auto;
-    }
-    .show_body {
-        flex-direction: column;
-    }
-    .show_center{
-        order: 1;
-        width: 100%;
-        padding: 0
-    }
-    .show_left{
-        order: 2;
-        width: 100%
-    }
-    .show_right{
-        order: 3;
-        width: 100%
-    }
 }
 
 @media (min-width: 600px) {
     .profile-pic {
         width: 400px;
     }
-    
 }
-
-@media (min-width: 900px) {
-    .profile-pic {
-        width: 400px;
-    }
-}
-@media (min-width: 1200px) {
-    .profile-pic {
-        width: 400px;
-    }
-    .parcours_cards {
-        flex-direction: row;
-    }
-    .parcours_card_1 {
-        width: 30%;
-        margin: 2em auto;
-    }
-    .parcours_card_2 {
-        width: 25%;
-        margin: 2em 1em;
-    }
-    .show_body {
-        flex-direction: row;
-    }
-    .show_center{
-        order: 2;
-        width: 65%;
-        padding: 1em 2em
-    }
-    .show_left{
-        order: 1;
-        width: 15%;
-    }
-    .show_right{
-        order: 3;
-        width: 15%;
-    }
-}
-
-

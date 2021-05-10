@@ -22,6 +22,21 @@ class Application
      */
     private $name;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $subtitle;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $date_debut;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $date_fin;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -35,6 +50,42 @@ class Application
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getSubtitle(): ?string
+    {
+        return $this->subtitle;
+    }
+
+    public function setSubtitle(?string $subtitle): self
+    {
+        $this->subtitle = $subtitle;
+
+        return $this;
+    }
+
+    public function getDateDebut(): ?string
+    {
+        return $this->date_debut;
+    }
+
+    public function setDateDebut(?string $date_debut): self
+    {
+        $this->date_debut = $date_debut;
+
+        return $this;
+    }
+
+    public function getDateFin(): ?string
+    {
+        return $this->date_fin;
+    }
+
+    public function setDateFin(?string $date_fin): self
+    {
+        $this->date_fin = $date_fin;
 
         return $this;
     }

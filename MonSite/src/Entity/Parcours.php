@@ -79,11 +79,37 @@ class Parcours
      */
     private $date_fin;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Production::class, mappedBy="parcours")
+     */
+    private $productions;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $phone;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $email;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $specialization;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $adress;
+
     public function __construct()
     {
         $this->pictures = new ArrayCollection();
         $this->software = new ArrayCollection();
         $this->softwareParcours = new ArrayCollection();
+        $this->productions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -269,6 +295,84 @@ class Parcours
     public function setDateFin(?string $date_fin): self
     {
         $this->date_fin = $date_fin;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Production[]
+     */
+    public function getProductions(): Collection
+    {
+        return $this->productions;
+    }
+
+    public function addProduction(Production $production): self
+    {
+        if (!$this->productions->contains($production)) {
+            $this->productions[] = $production;
+            $production->setParcours($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProduction(Production $production): self
+    {
+        if ($this->productions->removeElement($production)) {
+            // set the owning side to null (unless already changed)
+            if ($production->getParcours() === $this) {
+                $production->setParcours(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    public function setPhone(?string $phone): self
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(?string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function getSpecialization(): ?string
+    {
+        return $this->specialization;
+    }
+
+    public function setSpecialization(?string $specialization): self
+    {
+        $this->specialization = $specialization;
+
+        return $this;
+    }
+
+    public function getAdress(): ?string
+    {
+        return $this->adress;
+    }
+
+    public function setAdress(?string $adress): self
+    {
+        $this->adress = $adress;
 
         return $this;
     }

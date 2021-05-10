@@ -42,12 +42,12 @@
             <div class="production_card_footer">
                 <a class="production_card_link" href="{{ path('application_show', {'id': "1"}) }}">
                     <div class="production_card_exemple">
-                        <h4>Plantopia</h4>
+                        <h4>{{ applications.0.name }}</h4>
                     </div>
                 </a>
-                <a class="production_card_link" href="{{ path('main') }}">
+                <a class="production_card_link" href="{{ path('application_show', {'id': "2"}) }}">
                     <div class="production_card_exemple">
-                        <h4>Mon Site</h4>
+                        <h4>{{ applications.1.name }}</h4>
                     </div>
                 </a>
                 <a class="production_card_link" href="">

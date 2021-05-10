@@ -19,6 +19,24 @@ class SoftwareRepository extends ServiceEntityRepository
         parent::__construct($registry, Software::class);
     }
 
+    public function findSoftwareByParcours($id) 
+    {
+        $entityManager = $this->getEntityManager();
+        $conn = $entityManager->getConnection();
+        
+            $sql = '
+            SELECT software.name
+            FROM software
+            JOIN software_parcours
+            ON software.id = software_parcours.software_id
+            WHERE parcours_id = :id
+            ';
+        
+        $stmt = $conn->prepare($sql);
+        $stmt->executeStatement(['id' => $id]);
+        return $stmt->fetchAllAssociative();
+    }
+
     // /**
     //  * @return Software[] Returns an array of Software objects
     //  */

@@ -37,6 +37,7 @@ class ParcoursRepository extends ServiceEntityRepository
 
         return $query->getResult();
     }
+    
 
     // /**
     //  * @return Parcours[] Returns an array of Parcours objects

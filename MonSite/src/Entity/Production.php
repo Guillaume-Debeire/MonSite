@@ -29,6 +29,26 @@ class Production
      */
     private $description;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Exercice::class, cascade={"persist", "remove"})
+     */
+    private $exercice;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Parcours::class, inversedBy="productions")
+     */
+    private $parcours;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Application::class, cascade={"persist", "remove"})
+     */
+    private $application;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Audiovisuel::class, cascade={"persist", "remove"})
+     */
+    private $audiovisuel;
+
     
     public function __construct()
     {
@@ -67,5 +87,53 @@ class Production
     public function __toString()
     {
         return $this->name;
+    }
+
+    public function getExercice(): ?Exercice
+    {
+        return $this->exercice;
+    }
+
+    public function setExercice(?Exercice $exercice): self
+    {
+        $this->exercice = $exercice;
+
+        return $this;
+    }
+
+    public function getParcours(): ?Parcours
+    {
+        return $this->parcours;
+    }
+
+    public function setParcours(?Parcours $parcours): self
+    {
+        $this->parcours = $parcours;
+
+        return $this;
+    }
+
+    public function getApplication(): ?Application
+    {
+        return $this->application;
+    }
+
+    public function setApplication(?Application $application): self
+    {
+        $this->application = $application;
+
+        return $this;
+    }
+
+    public function getAudiovisuel(): ?Audiovisuel
+    {
+        return $this->audiovisuel;
+    }
+
+    public function setAudiovisuel(?Audiovisuel $audiovisuel): self
+    {
+        $this->audiovisuel = $audiovisuel;
+
+        return $this;
     }
 }

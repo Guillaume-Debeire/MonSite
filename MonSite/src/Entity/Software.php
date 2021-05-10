@@ -29,6 +29,11 @@ class Software
      */
     private $parcours;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $level;
+
     public function __construct()
     {
         $this->parcours = new ArrayCollection();
@@ -80,6 +85,18 @@ class Software
     public function __toString()
     {
         return $this->name;
+    }
+
+    public function getLevel(): ?string
+    {
+        return $this->level;
+    }
+
+    public function setLevel(?string $level): self
+    {
+        $this->level = $level;
+
+        return $this;
     }
 
 }

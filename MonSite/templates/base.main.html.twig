@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+            <link href="{{ asset('css/style.main.css') }}" rel="stylesheet">
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+        {% endblock %}
+        
+        
+        {% block javascripts %}
+            <script></script>
+        {% endblock %}
+    </head>
+    <body>
+    {% block navigation %}
+    <div class="header">
+            <a href="{{ path("main") }}">Accueil</a>
+            <a href="{{ path("parcours") }}">Mon parcours</a>
+            <a href="{{ path("production") }}">Mes productions</a>
+    </div> 
+    {% endblock %}
+    {% block body %}{% endblock %}
+    {% block footer %}
+        <div class="footer">
+            <div class="footer_presentation">
+                <h5>Guillaume Debeire</h5>
+                <h6>Développeur web</h6>
+            </div>
+            <div class ="footer_nav">
+                <a href="https://www.linkedin.com/in/guillaume-debeire-aab430a7/"><img class ="footer_logo_pro" src="{{ asset('assets/images/linkedin-logo.png') }}" alt="Linkedin"></a>
+                <a href="https://github.com/Guillaume-Debeire"><img class ="footer_logo_pro" src="{{ asset('assets/images/github-logo.png') }}" alt="Github"></a>
+                <a href="https://www.youtube.com/channel/UCCSgxFu_Lq-7T49ACU93HpQ/featured"><img class ="footer_logo_pro" src="{{ asset('assets/images/youtube-logo.png') }}" alt="YouTube"></a>
+            </div>
+        </div>
+    {% endblock %}
+    </body>
+</html>
