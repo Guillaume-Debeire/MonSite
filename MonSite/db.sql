@@ -55,7 +55,25 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 ('DoctrineMigrations\\Version20210510124953',	'2021-05-10 14:49:59',	153),
 ('DoctrineMigrations\\Version20210510141840',	'2021-05-10 16:18:48',	72),
 ('DoctrineMigrations\\Version20210510170016',	'2021-05-10 19:00:24',	91),
-('DoctrineMigrations\\Version20210510170445',	'2021-05-10 19:04:54',	72);
+('DoctrineMigrations\\Version20210510170445',	'2021-05-10 19:04:54',	72),
+('DoctrineMigrations\\Version20210511163208',	'2021-05-11 18:32:27',	149),
+('DoctrineMigrations\\Version20210511182229',	'2021-05-11 20:22:35',	129),
+('DoctrineMigrations\\Version20210511202009',	'2021-05-11 22:20:16',	122);
+
+DROP TABLE IF EXISTS `documents`;
+CREATE TABLE `documents` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parcours_id` int(11) DEFAULT NULL,
+  `picture_id` int(11) DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_A2B07288EE45BDBF` (`picture_id`),
+  KEY `IDX_A2B072886E38C0DB` (`parcours_id`),
+  CONSTRAINT `FK_A2B072886E38C0DB` FOREIGN KEY (`parcours_id`) REFERENCES `parcours` (`id`),
+  CONSTRAINT `FK_A2B07288EE45BDBF` FOREIGN KEY (`picture_id`) REFERENCES `picture` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 
 DROP TABLE IF EXISTS `exercice`;
 CREATE TABLE `exercice` (
@@ -97,9 +115,16 @@ CREATE TABLE `picture` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parcours_id` int(11) DEFAULT NULL,
   `path` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `application_id` int(11) DEFAULT NULL,
+  `exercice_id` int(11) DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_16DB4F896E38C0DB` (`parcours_id`),
-  CONSTRAINT `FK_16DB4F896E38C0DB` FOREIGN KEY (`parcours_id`) REFERENCES `parcours` (`id`)
+  KEY `IDX_16DB4F893E030ACD` (`application_id`),
+  KEY `IDX_16DB4F8989D40298` (`exercice_id`),
+  CONSTRAINT `FK_16DB4F893E030ACD` FOREIGN KEY (`application_id`) REFERENCES `application` (`id`),
+  CONSTRAINT `FK_16DB4F896E38C0DB` FOREIGN KEY (`parcours_id`) REFERENCES `parcours` (`id`),
+  CONSTRAINT `FK_16DB4F8989D40298` FOREIGN KEY (`exercice_id`) REFERENCES `exercice` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
@@ -162,6 +187,13 @@ CREATE TABLE `skill_application` (
   CONSTRAINT `FK_1A45440D5585C142` FOREIGN KEY (`skill_id`) REFERENCES `skill` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+INSERT INTO `skill_application` (`skill_id`, `application_id`) VALUES
+(1,	1),
+(2,	1),
+(3,	1),
+(4,	1),
+(5,	1),
+(6,	1);
 
 DROP TABLE IF EXISTS `skill_audiovisuel`;
 CREATE TABLE `skill_audiovisuel` (
@@ -227,6 +259,21 @@ INSERT INTO `software` (`id`, `name`, `level`) VALUES
 (5,	'Avid Media Composer',	NULL),
 (6,	'After Effect',	NULL);
 
+DROP TABLE IF EXISTS `software_application`;
+CREATE TABLE `software_application` (
+  `software_id` int(11) NOT NULL,
+  `application_id` int(11) NOT NULL,
+  PRIMARY KEY (`software_id`,`application_id`),
+  KEY `IDX_F9127E76D7452741` (`software_id`),
+  KEY `IDX_F9127E763E030ACD` (`application_id`),
+  CONSTRAINT `FK_F9127E763E030ACD` FOREIGN KEY (`application_id`) REFERENCES `application` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `FK_F9127E76D7452741` FOREIGN KEY (`software_id`) REFERENCES `software` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `software_application` (`software_id`, `application_id`) VALUES
+(1,	1),
+(2,	1);
+
 DROP TABLE IF EXISTS `software_parcours`;
 CREATE TABLE `software_parcours` (
   `software_id` int(11) NOT NULL,
@@ -255,4 +302,4 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
--- 2021-05-11 14:38:44
+-- 2021-05-11 20:28:24
