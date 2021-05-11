@@ -7,6 +7,7 @@ use App\Entity\Software;
 use App\Form\ParcoursType;
 use App\Repository\ParcoursRepository;
 use App\Repository\ProductionRepository;
+use App\Repository\SkillRepository;
 use App\Repository\SoftwareRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -57,12 +58,13 @@ class ParcoursController extends AbstractController
     /**
      * @Route("/{id}", name="parcours_show", methods={"GET"})
      */
-    public function show(Parcours $parcour, ParcoursRepository $parcoursRepo, ProductionRepository $productionRepository, SoftwareRepository $softwareRepository): Response
+    public function show(Parcours $parcour, ParcoursRepository $parcoursRepo, ProductionRepository $productionRepository, SoftwareRepository $softwareRepository, SkillRepository $skillRepository): Response
     {   
         return $this->render('parcours/show.html.twig', [
             'parcour' => $parcour,
             'softwares' => $softwareRepository->findSoftwareByParcours($parcour->getId()),
-            'productions' => $productionRepository->findProductionByParcours($parcour->getId())
+            'productions' => $productionRepository->findProductionByParcours($parcour->getId()),
+            'skills' => $skillRepository->findSkillByParcours($parcour->getId())
         ]);
     }
 

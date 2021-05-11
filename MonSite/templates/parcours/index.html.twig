@@ -6,13 +6,14 @@
     <h1>Mon Parcours</h1>
     <div class="parcours_cards">
         
-                <div class="parcours_card_2">
+        {# <div class="parcours_card_2">
             <a class="parcours_card_header" href="{{ path('parcours_show', {'id': "1"}) }}">
                 <h3 class="parcours_card_title">{{ parcours.0.name }}</h3>
                 <h4 class="parcours_card_subtitle">{{ parcours.0.subtitle }}</h4>
                 <h5 class="parcours_card_duration">{{ parcours.0.dateFin }}</h5>
                     <p class="parcours_card_description">{{ parcours.0.description }}</p>
             </a>
+        </div> #}
             {# <div class="parcours_card_footer">
                 <div class="parcours_card_software">
                     <h3 class="parcours_card_title">Logiciels</h3>
@@ -46,12 +47,14 @@
                         </a>
                 </div>
             </div> #}
-        </div>
-        <div class="parcours_card_1">
+        
+        <div class="parcours_card">
             <a class="parcours_card_header" href="{{ path('parcours_show', {'id': "2"}) }}">
+                <div class="parcours_card_super_header">
                 <h3 class="parcours_card_title">{{ parcours.1.name }}</h3>
                 <h4 class="parcours_card_subtitle">{{ parcours.1.subtitle }}</h4>
                 <h5 class="parcours_card_duration">{{ parcours.1.dateDebut }} -> {{ parcours.1.dateFin }}</h5>
+                </div>
                     <p class="parcours_card_description">{{ parcours.1.description }}</p>
             </a>
             <div class="parcours_card_footer">
@@ -87,11 +90,13 @@
                 </div>
             </div>
         </div>
-                <div class="parcours_card_2">
+                <div class="parcours_card">
             <a class="parcours_card_header" href="{{ path('parcours_show', {'id': "3"}) }}">
-               <h3 class="parcours_card_title">{{ parcours.2.name }}</h3>
+                <div class="parcours_card_super_header">
+                <h3 class="parcours_card_title">{{ parcours.2.name }}</h3>
                 <h4 class="parcours_card_subtitle">{{ parcours.2.subtitle }}</h4>
                 <h5 class="parcours_card_duration">{{ parcours.2.dateDebut }} -> {{ parcours.2.dateFin }}</h5>
+                </div>
                     <p class="parcours_card_description">{{ parcours.2.description }}</p>
             </a>
             <div class="parcours_card_footer">

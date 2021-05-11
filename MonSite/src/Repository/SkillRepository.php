@@ -19,6 +19,23 @@ class SkillRepository extends ServiceEntityRepository
         parent::__construct($registry, Skill::class);
     }
 
+    public function findSkillByParcours($id) 
+    {
+        $entityManager = $this->getEntityManager();
+        $conn = $entityManager->getConnection();
+        
+            $sql = '
+            SELECT skill.name
+            FROM skill
+            JOIN skill_parcours
+            ON skill.id = skill_parcours.skill_id
+            WHERE parcours_id = :id
+            ';
+        
+        $stmt = $conn->prepare($sql);
+        $stmt->executeStatement(['id' => $id]);
+        return $stmt->fetchAllAssociative();
+    }
     // /**
     //  * @return Skill[] Returns an array of Skill objects
     //  */

@@ -384,5 +384,14 @@ body {
     }
 }
 
+@media (max-width: 1200px ) {
+    .parcours_card_1 {
+        order: 1;
+    }
+    .parcours_card_2 {
+        order: 2;
+    }
+}
+
 
  

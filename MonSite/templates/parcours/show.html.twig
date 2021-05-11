@@ -42,33 +42,12 @@
                     {% endfor %}
                     </ul>
                     <ul class="show_list">
+                        {% for skill in skills %}
                         <li class="show_list_item">
-                            <div>HTML/CSS</div>
+                            <div>{{ skill.name }}</div>
                             {# <div>&#9733;&#9733;&#9733;&#9733;&#9733;</div> #}
                         </li>
-                        <li class="show_list_item">
-                            <div>PHP</div>
-                            {# <div>&#9733;&#9733;&#9733;&#9733;&#9733;</div> #}
-                        </li>
-                        <li class="show_list_item">
-                            <div>Javascript</div>
-                            {# <div>&#9733;&#9733;&#9733;&#9733;&#9734;</div> #}
-                        </li>
-                    </ul>
-                    <ul class="show_list">
-                        <li class="show_list_item">
-                            <div>Symfony</div>
-                            {# <div>&#9733;&#9733;&#9733;&#9733;&#9733;</div> #}
-                        </li>
-                        <li class="show_list_item">
-                            <div>React</div>
-                            {# <div>&#9733;&#9733;&#9733;&#9733;&#9734;</div> #}
-                        </li>
-                        <li class="show_list_item">
-                            <div>Bootstrap</div>
-                            {# <div>&#9733;&#9733;&#9733;&#9734;&#9734;</div> #}
-                        </li>
-                    </ul>
+                    {% endfor %}
                 </div>
             </div>
             <div class="show_center">

@@ -130,6 +130,87 @@ INSERT INTO `production` (`id`, `name`, `description`, `exercice_id`, `parcours_
 (4,	'Shirley!',	NULL,	NULL,	2,	NULL,	4),
 (5,	'Sound Road Teaser #2',	NULL,	NULL,	2,	NULL,	3);
 
+DROP TABLE IF EXISTS `skill`;
+CREATE TABLE `skill` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `skill` (`id`, `name`, `type`) VALUES
+(1,	'HTML',	'language'),
+(2,	'CSS',	'language'),
+(3,	'PHP',	'language'),
+(4,	'Javascript',	'language'),
+(5,	'Symfony',	'framework'),
+(6,	'React',	'library'),
+(7,	'Bootstrap',	'framework'),
+(8,	'Montage',	'video'),
+(9,	'Etalonnage',	'video'),
+(10,	'Derushage',	'video'),
+(11,	'Habillage',	'video');
+
+DROP TABLE IF EXISTS `skill_application`;
+CREATE TABLE `skill_application` (
+  `skill_id` int(11) NOT NULL,
+  `application_id` int(11) NOT NULL,
+  PRIMARY KEY (`skill_id`,`application_id`),
+  KEY `IDX_1A45440D5585C142` (`skill_id`),
+  KEY `IDX_1A45440D3E030ACD` (`application_id`),
+  CONSTRAINT `FK_1A45440D3E030ACD` FOREIGN KEY (`application_id`) REFERENCES `application` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `FK_1A45440D5585C142` FOREIGN KEY (`skill_id`) REFERENCES `skill` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+DROP TABLE IF EXISTS `skill_audiovisuel`;
+CREATE TABLE `skill_audiovisuel` (
+  `skill_id` int(11) NOT NULL,
+  `audiovisuel_id` int(11) NOT NULL,
+  PRIMARY KEY (`skill_id`,`audiovisuel_id`),
+  KEY `IDX_D91194885585C142` (`skill_id`),
+  KEY `IDX_D911948834C38397` (`audiovisuel_id`),
+  CONSTRAINT `FK_D911948834C38397` FOREIGN KEY (`audiovisuel_id`) REFERENCES `audiovisuel` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `FK_D91194885585C142` FOREIGN KEY (`skill_id`) REFERENCES `skill` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+DROP TABLE IF EXISTS `skill_exercice`;
+CREATE TABLE `skill_exercice` (
+  `skill_id` int(11) NOT NULL,
+  `exercice_id` int(11) NOT NULL,
+  PRIMARY KEY (`skill_id`,`exercice_id`),
+  KEY `IDX_A6B0AABF5585C142` (`skill_id`),
+  KEY `IDX_A6B0AABF89D40298` (`exercice_id`),
+  CONSTRAINT `FK_A6B0AABF5585C142` FOREIGN KEY (`skill_id`) REFERENCES `skill` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `FK_A6B0AABF89D40298` FOREIGN KEY (`exercice_id`) REFERENCES `exercice` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+DROP TABLE IF EXISTS `skill_parcours`;
+CREATE TABLE `skill_parcours` (
+  `skill_id` int(11) NOT NULL,
+  `parcours_id` int(11) NOT NULL,
+  PRIMARY KEY (`skill_id`,`parcours_id`),
+  KEY `IDX_DB19B3115585C142` (`skill_id`),
+  KEY `IDX_DB19B3116E38C0DB` (`parcours_id`),
+  CONSTRAINT `FK_DB19B3115585C142` FOREIGN KEY (`skill_id`) REFERENCES `skill` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `FK_DB19B3116E38C0DB` FOREIGN KEY (`parcours_id`) REFERENCES `parcours` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `skill_parcours` (`skill_id`, `parcours_id`) VALUES
+(1,	3),
+(2,	3),
+(3,	3),
+(4,	3),
+(5,	3),
+(6,	3),
+(7,	3),
+(8,	2),
+(9,	2),
+(10,	2),
+(11,	2);
+
 DROP TABLE IF EXISTS `software`;
 CREATE TABLE `software` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -140,7 +221,11 @@ CREATE TABLE `software` (
 
 INSERT INTO `software` (`id`, `name`, `level`) VALUES
 (1,	'VS Code',	'&#9733;&#9733;&#9733;&#9733;&#9733;'),
-(2,	'Insomnia',	NULL);
+(2,	'Insomnia',	NULL),
+(3,	'Premiere Pro',	NULL),
+(4,	'Photoshop',	NULL),
+(5,	'Avid Media Composer',	NULL),
+(6,	'After Effect',	NULL);
 
 DROP TABLE IF EXISTS `software_parcours`;
 CREATE TABLE `software_parcours` (
@@ -155,7 +240,11 @@ CREATE TABLE `software_parcours` (
 
 INSERT INTO `software_parcours` (`software_id`, `parcours_id`) VALUES
 (1,	3),
-(2,	3);
+(2,	3),
+(3,	2),
+(4,	2),
+(5,	2),
+(6,	2);
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
@@ -166,4 +255,4 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
--- 2021-05-11 13:06:07
+-- 2021-05-11 14:38:44
