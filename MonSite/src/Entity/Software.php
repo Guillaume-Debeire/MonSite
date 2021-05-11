@@ -34,11 +34,17 @@ class Software
      */
     private $level;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Application::class, inversedBy="software")
+     */
+    private $application;
+
     public function __construct()
     {
         $this->parcours = new ArrayCollection();
         $this->production = new ArrayCollection();
         $this->softwareParcours = new ArrayCollection();
+        $this->application = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -95,6 +101,30 @@ class Software
     public function setLevel(?string $level): self
     {
         $this->level = $level;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Application[]
+     */
+    public function getApplication(): Collection
+    {
+        return $this->application;
+    }
+
+    public function addApplication(Application $application): self
+    {
+        if (!$this->application->contains($application)) {
+            $this->application[] = $application;
+        }
+
+        return $this;
+    }
+
+    public function removeApplication(Application $application): self
+    {
+        $this->application->removeElement($application);
 
         return $this;
     }

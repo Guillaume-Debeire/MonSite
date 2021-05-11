@@ -21,7 +21,7 @@
         </header>
         <div class="show_body">
             <div class="show_left">
-                <div class="show_box">
+                {# <div class="show_box">
                     <h3 class="show_box_title">Informations</h3>
                     <ul class="show_list">
                         <li>hey@oclock.io</li>
@@ -31,46 +31,25 @@
                         <li></li>
                     </ul>
 
-                </div>
+                </div> #}
                 <div class="show_box">
-                    <h3 class="show_box_title">Logiciels & Compétences</h3>
+                    <h3 class="show_box_title">Logiciels & Langages utilisés</h3>
                     <ul class="show_list">
+                        {% for software in softwares %}
                         <li class="show_list_item">
-                            <div>VS Code</div>
-                            <div>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                            <div>{{ software.name }}</div>
+                            {# <div>&#9733;&#9733;&#9733;&#9733;&#9733;</div> #}
                         </li>
-                        <li class="show_list_item">
-                            <div>Insomnia</div>
-                            <div>&#9733;&#9733;&#9733;&#9733;&#9734;</div>
-                        </li>
+                        {% endfor %}
+                        
                     </ul>
                     <ul class="show_list">
+                        {% for skill in skills %}
                         <li class="show_list_item">
-                            <div>HTML/CSS</div>
-                            <div>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                            <div>{{ skill.name }}</div>
+                            {# <div>&#9733;&#9733;&#9733;&#9733;&#9733;</div> #}
                         </li>
-                        <li class="show_list_item">
-                            <div>PHP</div>
-                            <div>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                        </li>
-                        <li class="show_list_item">
-                            <div>Javascript</div>
-                            <div>&#9733;&#9733;&#9733;&#9733;&#9734;</div>
-                        </li>
-                    </ul>
-                    <ul class="show_list">
-                        <li class="show_list_item">
-                            <div>Symfony</div>
-                            <div>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                        </li>
-                        <li class="show_list_item">
-                            <div>React</div>
-                            <div>&#9733;&#9733;&#9733;&#9733;&#9734;</div>
-                        </li>
-                        <li class="show_list_item">
-                            <div>Bootstrap</div>
-                            <div>&#9733;&#9733;&#9733;&#9734;&#9734;</div>
-                        </li>
+                        {% endfor %}
                     </ul>
                 </div>
             </div>

@@ -44,12 +44,24 @@ class Application
      */
     private $skills;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Picture::class, mappedBy="application")
+     */
+    private $pictures;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Software::class, mappedBy="application")
+     */
+    private $software;
+
     
 
     public function __construct()
     {
         $this->audiovisuel = new ArrayCollection();
         $this->skills = new ArrayCollection();
+        $this->pictures = new ArrayCollection();
+        $this->software = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -127,6 +139,63 @@ class Application
     {
         if ($this->skills->removeElement($skill)) {
             $skill->removeApplication($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Picture[]
+     */
+    public function getPictures(): Collection
+    {
+        return $this->pictures;
+    }
+
+    public function addPicture(Picture $picture): self
+    {
+        if (!$this->pictures->contains($picture)) {
+            $this->pictures[] = $picture;
+            $picture->setApplication($this);
+        }
+
+        return $this;
+    }
+
+    public function removePicture(Picture $picture): self
+    {
+        if ($this->pictures->removeElement($picture)) {
+            // set the owning side to null (unless already changed)
+            if ($picture->getApplication() === $this) {
+                $picture->setApplication(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Software[]
+     */
+    public function getSoftware(): Collection
+    {
+        return $this->software;
+    }
+
+    public function addSoftware(Software $software): self
+    {
+        if (!$this->software->contains($software)) {
+            $this->software[] = $software;
+            $software->addApplication($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSoftware(Software $software): self
+    {
+        if ($this->software->removeElement($software)) {
+            $software->removeApplication($this);
         }
 
         return $this;

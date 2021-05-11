@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Application;
 use App\Form\ApplicationType;
 use App\Repository\ApplicationRepository;
+use App\Repository\SkillRepository;
+use App\Repository\SoftwareRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -51,10 +53,12 @@ class ApplicationController extends AbstractController
     /**
      * @Route("/{id}", name="application_show", methods={"GET"})
      */
-    public function show(Application $application): Response
+    public function show(Application $application, SoftwareRepository $softwareRepository, SkillRepository $skillRepository): Response
     {
         return $this->render('application/show.html.twig', [
             'application' => $application,
+            'softwares' => $softwareRepository->findSoftwareByApplication($application->getId()),
+            'skills' => $skillRepository->findSkillByApplication($application->getId())
         ]);
     }
 

@@ -109,6 +109,11 @@ class Parcours
      */
     private $skills;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Documents::class, mappedBy="parcours")
+     */
+    private $documents;
+
     public function __construct()
     {
         $this->pictures = new ArrayCollection();
@@ -116,6 +121,7 @@ class Parcours
         $this->softwareParcours = new ArrayCollection();
         $this->productions = new ArrayCollection();
         $this->skills = new ArrayCollection();
+        $this->documents = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -405,6 +411,36 @@ class Parcours
     {
         if ($this->skills->removeElement($skill)) {
             $skill->removeParcour($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Documents[]
+     */
+    public function getDocuments(): Collection
+    {
+        return $this->documents;
+    }
+
+    public function addDocument(Documents $document): self
+    {
+        if (!$this->documents->contains($document)) {
+            $this->documents[] = $document;
+            $document->setParcours($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDocument(Documents $document): self
+    {
+        if ($this->documents->removeElement($document)) {
+            // set the owning side to null (unless already changed)
+            if ($document->getParcours() === $this) {
+                $document->setParcours(null);
+            }
         }
 
         return $this;

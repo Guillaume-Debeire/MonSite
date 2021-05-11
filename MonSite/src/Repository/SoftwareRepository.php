@@ -36,7 +36,24 @@ class SoftwareRepository extends ServiceEntityRepository
         $stmt->executeStatement(['id' => $id]);
         return $stmt->fetchAllAssociative();
     }
-
+    
+    public function findSoftwareByApplication($id) 
+    {
+        $entityManager = $this->getEntityManager();
+        $conn = $entityManager->getConnection();
+        
+            $sql = '
+            SELECT software.name
+            FROM software
+            JOIN software_application
+            ON software.id = software_application.software_id
+            WHERE application_id = :id
+            ';
+        
+        $stmt = $conn->prepare($sql);
+        $stmt->executeStatement(['id' => $id]);
+        return $stmt->fetchAllAssociative();
+    }
     // /**
     //  * @return Software[] Returns an array of Software objects
     //  */

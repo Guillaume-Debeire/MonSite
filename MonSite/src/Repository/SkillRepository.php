@@ -36,6 +36,24 @@ class SkillRepository extends ServiceEntityRepository
         $stmt->executeStatement(['id' => $id]);
         return $stmt->fetchAllAssociative();
     }
+
+    public function findSkillByApplication($id) 
+    {
+        $entityManager = $this->getEntityManager();
+        $conn = $entityManager->getConnection();
+        
+            $sql = '
+            SELECT skill.name
+            FROM skill
+            JOIN skill_application
+            ON skill.id = skill_application.skill_id
+            WHERE application_id = :id
+            ';
+        
+        $stmt = $conn->prepare($sql);
+        $stmt->executeStatement(['id' => $id]);
+        return $stmt->fetchAllAssociative();
+    }
     // /**
     //  * @return Skill[] Returns an array of Skill objects
     //  */

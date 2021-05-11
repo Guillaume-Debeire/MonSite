@@ -18,7 +18,7 @@ body {
 .header {
     display:flex;
     flex-direction: row;
-    width: 25em;
+    width: 30em;
     margin: 2em auto;
     text-align: center;
     justify-content: space-between;
@@ -285,6 +285,9 @@ body {
         saturate(70%)
         brightness(130%);
 }
+profile_pic_link:focus{
+    width: 60em;
+}
 
 .footer {
     text-align: center;
@@ -304,12 +307,24 @@ body {
 }
 
 @media (min-width: 300px) {
+    html {
+        font-size: 30px;
+    }
     .profile-pic {
         width: 200px;
     }
 }
 
 @media (min-width: 600px) {
+    .profile-pic {
+        width: 400px;
+    }
+}
+
+@media (min-width: 1200px) {
+    html {
+        font-size: large;
+    }
     .profile-pic {
         width: 400px;
     }

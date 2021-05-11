@@ -18,7 +18,7 @@ body {
 .header {
     display:flex;
     flex-direction: row;
-    width: 25em;
+    width: 30em;
     margin: 2em auto;
     text-align: center;
     justify-content: space-between;
@@ -67,10 +67,11 @@ body {
     display: flex;
 }
 
-.parcours_card_1 {
+
+.parcours_card {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     width: 450px;
     text-align: center;
     margin: 2em auto 3em;
@@ -262,10 +263,9 @@ body {
     list-style-type: none;
     padding: 0 1em 1em;
     margin: 1em;
+    text-align: center;
 }
 .show_list_item {
-    display: flex;
-    justify-content: space-between;
 }
 /* FOOTER */
 
@@ -306,18 +306,16 @@ body {
 }
 
 @media (min-width: 300px) {
+    html {
+        font-size: 30px;
+    }
     .profile-pic {
         width: 200px;
     }
     .parcours_cards {
-        flex-direction: column;
-        
+        flex-direction: column;        
     }
-    .parcours_card_1 {
-        width: 80%;
-        margin: 2em auto;
-    }
-    .parcours_card_2 {
+    .parcours_card {
         width: 80%;
         margin: 2em auto;
     }
@@ -352,19 +350,18 @@ body {
     }
 }
 @media (min-width: 1200px) {
+    html {
+        font-size: large;
+    }
     .profile-pic {
         width: 400px;
     }
     .parcours_cards {
         flex-direction: row;
     }
-    .parcours_card_1 {
-        width: 30%;
+    .parcours_card {
+        width: 40%;
         margin: 2em auto;
-    }
-    .parcours_card_2 {
-        width: 25%;
-        margin: 2em 1em;
     }
     .show_body {
         flex-direction: row;
@@ -385,11 +382,8 @@ body {
 }
 
 @media (max-width: 1200px ) {
-    .parcours_card_1 {
+    .parcours_card_ {
         order: 1;
-    }
-    .parcours_card_2 {
-        order: 2;
     }
 }
 
