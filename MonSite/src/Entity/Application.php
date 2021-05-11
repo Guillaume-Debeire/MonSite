@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ApplicationRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,6 +38,19 @@ class Application
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $date_fin;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Skill::class, mappedBy="application")
+     */
+    private $skills;
+
+    
+
+    public function __construct()
+    {
+        $this->audiovisuel = new ArrayCollection();
+        $this->skills = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -89,4 +104,32 @@ class Application
 
         return $this;
     }
+
+    /**
+     * @return Collection|Skill[]
+     */
+    public function getSkills(): Collection
+    {
+        return $this->skills;
+    }
+
+    public function addSkill(Skill $skill): self
+    {
+        if (!$this->skills->contains($skill)) {
+            $this->skills[] = $skill;
+            $skill->addApplication($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSkill(Skill $skill): self
+    {
+        if ($this->skills->removeElement($skill)) {
+            $skill->removeApplication($this);
+        }
+
+        return $this;
+    }
+
 }

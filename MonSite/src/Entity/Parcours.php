@@ -104,12 +104,18 @@ class Parcours
      */
     private $adress;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Skill::class, mappedBy="parcours")
+     */
+    private $skills;
+
     public function __construct()
     {
         $this->pictures = new ArrayCollection();
         $this->software = new ArrayCollection();
         $this->softwareParcours = new ArrayCollection();
         $this->productions = new ArrayCollection();
+        $this->skills = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -373,6 +379,33 @@ class Parcours
     public function setAdress(?string $adress): self
     {
         $this->adress = $adress;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Skill[]
+     */
+    public function getSkills(): Collection
+    {
+        return $this->skills;
+    }
+
+    public function addSkill(Skill $skill): self
+    {
+        if (!$this->skills->contains($skill)) {
+            $this->skills[] = $skill;
+            $skill->addParcour($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSkill(Skill $skill): self
+    {
+        if ($this->skills->removeElement($skill)) {
+            $skill->removeParcour($this);
+        }
 
         return $this;
     }
