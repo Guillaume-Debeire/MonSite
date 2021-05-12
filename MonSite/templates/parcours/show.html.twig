@@ -5,17 +5,17 @@
 {% block body %}
     <div class="show_page">
         <header class="show_header">
-            <a class="button_back" href="{{ path('parcours') }}">Retour à la liste</a>
+            {# <a class="button_back" href="{{ path('parcours') }}">Retour à la liste</a> #}
             <div class="show_header_title">
-                <a class="nav_button" href="{{ path('parcours_show', {'id': "1"}) }}">&#8249;</a>
+                {# <a class="nav_button" href="{{ path('parcours_show', {'id': "1"}) }}">&#8249;</a> #}
                 <div>
-                    <h1>{{ parcour.name }}</h1>
+                    <h1 class="show_title">{{ parcour.name }}</h1>
                 </div>
                 
-                <a class="nav_button" href="{{ path('parcours_show', {'id': "1"}) }}">&#8250;</a>
+                {# <a class="nav_button" href="{{ path('parcours_show', {'id': "1"}) }}">&#8250;</a> #}
             </div>
-            <h4>{{ parcour.subtitle }}</h4>
-            <h5>{{ parcour.dateDebut }} -> {{ parcour.dateFin }}</h5>
+            <h4 class="subtitle">{{ parcour.subtitle }}</h4>
+            <h5 class="subtitle">{{ parcour.dateDebut }} -> {{ parcour.dateFin }}</h5>
         </header>
         <div class="show_body">
             <div class="show_left">
@@ -126,4 +126,5 @@
     {# <a href="{{ path('parcours_edit', {'id': parcour.id}) }}">edit</a>
 
     {{ include('parcours/_delete_form.html.twig') }} #}
+</div>    
 {% endblock %}

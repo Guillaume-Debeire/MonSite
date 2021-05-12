@@ -35,6 +35,22 @@ class DocRepository extends ServiceEntityRepository
         return $stmt->fetchAllAssociative();
     }
 
+    public function findDocByApplication($id) 
+    {
+        $entityManager = $this->getEntityManager();
+        $conn = $entityManager->getConnection();
+        
+            $sql = '
+            SELECT *
+            FROM doc
+            WHERE application_id = :id
+            ';
+        
+        $stmt = $conn->prepare($sql);
+        $stmt->executeStatement(['id' => $id]);
+        return $stmt->fetchAllAssociative();
+    }
+
     // /**
     //  * @return Doc[] Returns an array of Doc objects
     //  */

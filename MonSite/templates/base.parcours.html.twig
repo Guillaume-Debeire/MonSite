@@ -19,10 +19,10 @@
     <body>
     {% block navigation %}
     <div class="header">
-            <a href="{{ path("main") }}">Accueil</a>
-            <a href="{{ path("parcours") }}">Mon parcours</a>
-            <a href="{{ path("production") }}">Mes productions</a>
-            <a href="{{ path("documents_index") }}">Mes documents</a>
+            <a class="nav_bar_item" href="{{ path("main") }}">Accueil</a>
+            <a class="nav_bar_item" href="{{ path("parcours") }}">Mon parcours</a>
+            <a class="nav_bar_item" href="{{ path("production") }}">Mes productions</a>
+            <a class="nav_bar_item" href="{{ path("documents_index") }}">Mes documents</a>
     </div> 
     {% endblock %}
     {% block body %}{% endblock %}
@@ -38,6 +38,7 @@
                 <a href="https://www.youtube.com/channel/UCCSgxFu_Lq-7T49ACU93HpQ/featured"><img class ="footer_logo_pro" src="{{ asset('assets/images/youtube-logo.png') }}" alt="YouTube"></a>
             </div>
         </div>
+    </div>
     {% endblock %}
     </body>
 </html>

@@ -54,6 +54,21 @@ class Application
      */
     private $software;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Doc::class, mappedBy="application")
+     */
+    private $docs;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $url;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $repo_url;
+
     
 
     public function __construct()
@@ -62,6 +77,7 @@ class Application
         $this->skills = new ArrayCollection();
         $this->pictures = new ArrayCollection();
         $this->software = new ArrayCollection();
+        $this->docs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -197,6 +213,60 @@ class Application
         if ($this->software->removeElement($software)) {
             $software->removeApplication($this);
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Doc[]
+     */
+    public function getDocs(): Collection
+    {
+        return $this->docs;
+    }
+
+    public function addDoc(Doc $doc): self
+    {
+        if (!$this->docs->contains($doc)) {
+            $this->docs[] = $doc;
+            $doc->setApplication($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDoc(Doc $doc): self
+    {
+        if ($this->docs->removeElement($doc)) {
+            // set the owning side to null (unless already changed)
+            if ($doc->getApplication() === $this) {
+                $doc->setApplication(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getUrl(): ?string
+    {
+        return $this->url;
+    }
+
+    public function setUrl(?string $url): self
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    public function getRepoUrl(): ?string
+    {
+        return $this->repo_url;
+    }
+
+    public function setRepoUrl(?string $repo_url): self
+    {
+        $this->repo_url = $repo_url;
 
         return $this;
     }

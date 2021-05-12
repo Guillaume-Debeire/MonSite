@@ -3,50 +3,10 @@
 {% block title %}Mon Parcours{% endblock %}
 
 {% block body %}
+    <div class="whole_body">
     <h1>Mon Parcours</h1>
     <div class="parcours_cards">
         
-        {# <div class="parcours_card_2">
-            <a class="parcours_card_header" href="{{ path('parcours_show', {'id': "1"}) }}">
-                <h3 class="parcours_card_title">{{ parcours.0.name }}</h3>
-                <h4 class="parcours_card_subtitle">{{ parcours.0.subtitle }}</h4>
-                <h5 class="parcours_card_duration">{{ parcours.0.dateFin }}</h5>
-                    <p class="parcours_card_description">{{ parcours.0.description }}</p>
-            </a>
-        </div> #}
-            {# <div class="parcours_card_footer">
-                <div class="parcours_card_software">
-                    <h3 class="parcours_card_title">Logiciels</h3>
-                        <a class="production_card_link" href="">
-                            <div class="production_card_exemple">
-                            <h5 class="parcours_production_card">Nom du logiciel</h5>
-                            </div>
-                        </a>
-                        <a class="production_card_link" href="">
-                            <div class="production_card_exemple">
-                            <h5 class="parcours_production_card">Nom du logiciel</h5>
-                            </div>
-                        </a>
-                        <a class="production_card_link" href="">
-                            <div class="production_card_exemple">
-                            <h5 class="parcours_production_card">Nom du logiciel</h5>
-                            </div>
-                        </a>
-                </div>
-                <div class="parcours_card_software">
-                    <h3 class="parcours_card_title">Productions</h3>
-                        <a class="production_card_link" href="">
-                            <div class="production_card_exemple">
-                            <h5 class="parcours_production_card">Nom de la production</h5>
-                            </div>
-                        </a>
-                        <a class="production_card_link" href="">
-                            <div class="production_card_exemple">
-                            <h5 class="parcours_production_card">Nom de la production</h5>
-                            </div>
-                        </a>
-                </div>
-            </div> #}
         
         <div class="parcours_card">
             <a class="parcours_card_header" href="{{ path('parcours_show', {'id': "2"}) }}">
@@ -114,16 +74,6 @@
                 </div>
                 <div class="parcours_card_software">
                     <h3 class="parcours_card_title">Exercices</h3>
-                        {# <a class="production_card_link" href="{{ path('application_show', {'id': "1"}) }}">
-                            <div class="production_card_exemple">
-                            <h5 class="parcours_production_card">{{ parcours.2.productions.snapshot.0.name }}</h5>
-                            </div>
-                        </a>
-                        <a class="production_card_link" href="{{ path('exercice_show', {'id': "1"}) }}">
-                            <div class="production_card_exemple">
-                            <h5 class="parcours_production_card">{{ parcours.2.productions.snapshot.2.name }}</h5>
-                            </div>
-                        </a> #}
                         {% for oclockExercice in oclockExercices %}
                         <a class="production_card_link" href="{{ path('exercice_show', {'id': "1"}) }}">
 
@@ -153,7 +103,10 @@
         {% endfor %}
         </tbody>
     </table> #}
+    {% if app.user %}
     <div>
         <a href="{{ path('parcours_new') }}">Create new</a>
     </div>
+    {% endif %}
+    
 {% endblock %}

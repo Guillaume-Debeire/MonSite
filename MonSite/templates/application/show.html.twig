@@ -7,7 +7,7 @@
 
 <div class="show_page">
         <header class="show_header">
-            <a class="button_back" href="{{ path('production') }}">Retour à la liste</a>
+            <a class="nav_bar_item" href="{{ path('production') }}">Retour à la liste</a>
             <div class="show_header_title">
                 <a class="nav_button" href="#">&#8249;</a>
                 <div>
@@ -21,17 +21,20 @@
         </header>
         <div class="show_body">
             <div class="show_left">
-                {# <div class="show_box">
-                    <h3 class="show_box_title">Informations</h3>
-                    <ul class="show_list">
-                        <li>hey@oclock.io</li>
-                        <li>09.74.76.80.67</li>
-                        <li>Spécialisation Symfony</li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-
-                </div> #}
+                {% if (application.url is defined or application.repoUrl is defined) %}
+                    <div class="show_box">
+                        <h3 class="show_box_title">Liens</h3>
+                        <ul class="show_list">
+                            {% if (application.repoUrl is defined) %}
+                            <li class="show_list_item"><a class="show_list_url" href="{{ application.repoUrl }}">Repo Github</a></li>
+                            {% endif %}
+                            {% if (application.url is defined) %}
+                            <li class="show_list_item"><a class="show_list_url" href="{{ application.url }}">lien vers le site</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                {% endif %}
+                
                 <div class="show_box">
                     <h3 class="show_box_title">Logiciels & Langages utilisés</h3>
                     <ul class="show_list">
@@ -52,6 +55,7 @@
                         {% endfor %}
                     </ul>
                 </div>
+                
             </div>
             <div class="show_center">
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi dolor perferendis quod maiores minus tempora! Impedit, suscipit possimus perferendis fuga, dignissimos quas cupiditate unde minus perspiciatis facilis ratione culpa laudantium!</p>
@@ -62,17 +66,20 @@
             </div>
             <div class="show_right">
                 <div class="show_box">
-                    <h3 class="show_box_title">Productions</h3>
+                    <h3 class="show_box_title">Documents</h3>
                     <a class="production_card_link" href="{{ asset("assets/documents/plantopia/mcd_v8.svg") }}">
                         <div class="production_card_exemple">
                             <h4>Nom de la production</h4>
                         </div>
                     </a>
-                    <a class="production_card_link" href="">
+                    {% for doc in docs %}
+                    <a class="production_card_link" href="{{ doc.path }}">
                         <div class="production_card_exemple">
-                            <h4>Nom de la production</h4>
+                            <h4>{{ doc.name }}</h4>
                         </div>
                     </a>
+                    {% else %}
+                    {% endfor %}
                     <a class="production_card_link" href="">
                         <div class="production_card_exemple">
                             <h4>Nom de la production</h4>

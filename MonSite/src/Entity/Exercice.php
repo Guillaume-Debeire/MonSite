@@ -34,10 +34,16 @@ class Exercice
      */
     private $pictures;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Doc::class, mappedBy="exercice")
+     */
+    private $docs;
+
     public function __construct()
     {
         $this->skills = new ArrayCollection();
         $this->pictures = new ArrayCollection();
+        $this->docs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -108,6 +114,36 @@ class Exercice
             // set the owning side to null (unless already changed)
             if ($picture->getExercice() === $this) {
                 $picture->setExercice(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Doc[]
+     */
+    public function getDocs(): Collection
+    {
+        return $this->docs;
+    }
+
+    public function addDoc(Doc $doc): self
+    {
+        if (!$this->docs->contains($doc)) {
+            $this->docs[] = $doc;
+            $doc->setExercice($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDoc(Doc $doc): self
+    {
+        if ($this->docs->removeElement($doc)) {
+            // set the owning side to null (unless already changed)
+            if ($doc->getExercice() === $this) {
+                $doc->setExercice(null);
             }
         }
 

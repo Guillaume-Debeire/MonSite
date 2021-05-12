@@ -37,6 +37,16 @@ class Doc
      */
     private $parcours;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Application::class, inversedBy="docs")
+     */
+    private $application;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Exercice::class, inversedBy="docs")
+     */
+    private $exercice;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +96,30 @@ class Doc
     public function setParcours(?Parcours $parcours): self
     {
         $this->parcours = $parcours;
+
+        return $this;
+    }
+
+    public function getApplication(): ?Application
+    {
+        return $this->application;
+    }
+
+    public function setApplication(?Application $application): self
+    {
+        $this->application = $application;
+
+        return $this;
+    }
+
+    public function getExercice(): ?Exercice
+    {
+        return $this->exercice;
+    }
+
+    public function setExercice(?Exercice $exercice): self
+    {
+        $this->exercice = $exercice;
 
         return $this;
     }
