@@ -83,10 +83,13 @@
                 <div class="show_box">
                     
                     <h3 class="show_box_title">Documents</h3>
-                    <div class="show_box_img">
+                    {% for doc in docs %}
+                        <a class="doc_exemple" href="{{ asset(doc.path) }}">{{ doc.name }}</a>
+                    {% endfor %}
+                    {# <div class="show_box_img">
                         <img class="show_img" src="{{ asset("assets/images/photos/guillaume.jpg") }}" alt="">
                         <img class="show_img" src="{{ asset("assets/images/photos/guillaume.jpg") }}" alt="">
-                    </div>
+                    </div> #}
                 </div>
             </div>
         </div>
@@ -118,9 +121,9 @@
         {% endif %}
     </body> #}
 
-    <a href="{{ path('parcours') }}">back to list</a>
+    {# <a href="{{ path('parcours') }}">back to list</a> #}
 
-    <a href="{{ path('parcours_edit', {'id': parcour.id}) }}">edit</a>
+    {# <a href="{{ path('parcours_edit', {'id': parcour.id}) }}">edit</a>
 
-    {{ include('parcours/_delete_form.html.twig') }}
+    {{ include('parcours/_delete_form.html.twig') }} #}
 {% endblock %}

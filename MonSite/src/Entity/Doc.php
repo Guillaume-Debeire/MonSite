@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\DocumentsRepository;
+use App\Repository\DocRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=DocumentsRepository::class)
+ * @ORM\Entity(repositoryClass=DocRepository::class)
  */
-class Documents
+class Doc
 {
     /**
      * @ORM\Id
@@ -28,19 +28,14 @@ class Documents
     private $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Parcours::class, inversedBy="documents")
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $path;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Parcours::class, inversedBy="docs")
      */
     private $parcours;
-
-    /**
-     * @ORM\OneToOne(targetEntity=Picture::class, cascade={"persist", "remove"})
-     */
-    private $picture;
-
-    /**
-     * @ORM\OneToOne(targetEntity=Doc::class, cascade={"persist", "remove"})
-     */
-    private $doc;
 
     public function getId(): ?int
     {
@@ -71,6 +66,18 @@ class Documents
         return $this;
     }
 
+    public function getPath(): ?string
+    {
+        return $this->path;
+    }
+
+    public function setPath(?string $path): self
+    {
+        $this->path = $path;
+
+        return $this;
+    }
+
     public function getParcours(): ?Parcours
     {
         return $this->parcours;
@@ -79,30 +86,6 @@ class Documents
     public function setParcours(?Parcours $parcours): self
     {
         $this->parcours = $parcours;
-
-        return $this;
-    }
-
-    public function getPicture(): ?Picture
-    {
-        return $this->picture;
-    }
-
-    public function setPicture(?Picture $picture): self
-    {
-        $this->picture = $picture;
-
-        return $this;
-    }
-
-    public function getDoc(): ?Doc
-    {
-        return $this->doc;
-    }
-
-    public function setDoc(?Doc $doc): self
-    {
-        $this->doc = $doc;
 
         return $this;
     }

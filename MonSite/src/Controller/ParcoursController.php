@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Doc;
 use App\Entity\Parcours;
 use App\Entity\Software;
 use App\Form\ParcoursType;
+use App\Repository\DocRepository;
 use App\Repository\ParcoursRepository;
 use App\Repository\ProductionRepository;
 use App\Repository\SkillRepository;
@@ -58,13 +60,14 @@ class ParcoursController extends AbstractController
     /**
      * @Route("/{id}", name="parcours_show", methods={"GET"})
      */
-    public function show(Parcours $parcour, ParcoursRepository $parcoursRepo, ProductionRepository $productionRepository, SoftwareRepository $softwareRepository, SkillRepository $skillRepository): Response
+    public function show(Parcours $parcour, ParcoursRepository $parcoursRepo, ProductionRepository $productionRepository, SoftwareRepository $softwareRepository, SkillRepository $skillRepository, DocRepository $docs): Response
     {   
         return $this->render('parcours/show.html.twig', [
             'parcour' => $parcour,
             'softwares' => $softwareRepository->findSoftwareByParcours($parcour->getId()),
             'productions' => $productionRepository->findProductionByParcours($parcour->getId()),
-            'skills' => $skillRepository->findSkillByParcours($parcour->getId())
+            'skills' => $skillRepository->findSkillByParcours($parcour->getId()),
+            'docs' => $docs->findDocByParcours($parcour->getId())
         ]);
     }
 

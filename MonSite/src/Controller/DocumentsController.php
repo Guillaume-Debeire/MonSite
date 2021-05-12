@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Documents;
 use App\Form\DocumentsType;
+use App\Repository\DocRepository;
 use App\Repository\DocumentsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,10 +19,11 @@ class DocumentsController extends AbstractController
     /**
      * @Route("/", name="documents_index", methods={"GET"})
      */
-    public function index(DocumentsRepository $documentsRepository): Response
+    public function index(DocumentsRepository $documentsRepository, DocRepository $docRepository): Response
     {
         return $this->render('documents/index.html.twig', [
             'documents' => $documentsRepository->findAll(),
+            'docs' => $docRepository->findall()
         ]);
     }
 

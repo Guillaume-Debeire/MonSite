@@ -38,6 +38,24 @@ INSERT INTO `audiovisuel` (`id`, `name`, `date_debut`, `date_fin`, `type`, `link
 (3,	'Sound Road Teaser #2',	'Avril 2013',	'Avril 2013',	'Teaser',	'https://www.youtube.com/embed/qK2VscEKFcU'),
 (4,	'Shirley!',	'Mars 2015',	'Mai 2015',	'Court-métrage',	'https://www.youtube.com/embed/Wd2T8CnA4Xg');
 
+DROP TABLE IF EXISTS `doc`;
+CREATE TABLE `doc` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parcours_id` int(11) DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `path` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_8641FD646E38C0DB` (`parcours_id`),
+  CONSTRAINT `FK_8641FD646E38C0DB` FOREIGN KEY (`parcours_id`) REFERENCES `parcours` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `doc` (`id`, `parcours_id`, `name`, `description`, `path`) VALUES
+(1,	NULL,	'CV',	NULL,	'assets/documents/officiels/CV_Guillaume_Debeire_2021.pdf'),
+(2,	2,	'Diplôme 3iS',	'Diplome',	'assets/documents/officiels/Diplome_3IS.pdf'),
+(3,	3,	'Certificat Opquast',	'certificat',	'assets/documents/officiels/certificat_opquast.pdf'),
+(4,	2,	'Diplôme 3iS Bachelor',	'Diplome',	'Diplome_3IS_Bachelor');
+
 DROP TABLE IF EXISTS `doctrine_migration_versions`;
 CREATE TABLE `doctrine_migration_versions` (
   `version` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
@@ -58,7 +76,8 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 ('DoctrineMigrations\\Version20210510170445',	'2021-05-10 19:04:54',	72),
 ('DoctrineMigrations\\Version20210511163208',	'2021-05-11 18:32:27',	149),
 ('DoctrineMigrations\\Version20210511182229',	'2021-05-11 20:22:35',	129),
-('DoctrineMigrations\\Version20210511202009',	'2021-05-11 22:20:16',	122);
+('DoctrineMigrations\\Version20210511202009',	'2021-05-11 22:20:16',	122),
+('DoctrineMigrations\\Version20210512090732',	'2021-05-12 11:07:45',	192);
 
 DROP TABLE IF EXISTS `documents`;
 CREATE TABLE `documents` (
@@ -67,10 +86,13 @@ CREATE TABLE `documents` (
   `picture_id` int(11) DEFAULT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `doc_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_A2B07288EE45BDBF` (`picture_id`),
+  UNIQUE KEY `UNIQ_A2B07288895648BC` (`doc_id`),
   KEY `IDX_A2B072886E38C0DB` (`parcours_id`),
   CONSTRAINT `FK_A2B072886E38C0DB` FOREIGN KEY (`parcours_id`) REFERENCES `parcours` (`id`),
+  CONSTRAINT `FK_A2B07288895648BC` FOREIGN KEY (`doc_id`) REFERENCES `doc` (`id`),
   CONSTRAINT `FK_A2B07288EE45BDBF` FOREIGN KEY (`picture_id`) REFERENCES `picture` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -302,4 +324,4 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
--- 2021-05-11 20:28:24
+-- 2021-05-12 10:39:32
