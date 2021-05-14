@@ -69,6 +69,31 @@ class Application
      */
     private $repo_url;
 
+    /**
+     * @ORM\Column(type="string", length=600, nullable=true)
+     */
+    private $intro;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $title1;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $title2;
+
+    /**
+     * @ORM\Column(type="string", length=1000, nullable=true)
+     */
+    private $text1;
+
+    /**
+     * @ORM\Column(type="string", length=1000, nullable=true)
+     */
+    private $text2;
+
     
 
     public function __construct()
@@ -267,6 +292,66 @@ class Application
     public function setRepoUrl(?string $repo_url): self
     {
         $this->repo_url = $repo_url;
+
+        return $this;
+    }
+
+    public function getIntro(): ?string
+    {
+        return $this->intro;
+    }
+
+    public function setIntro(?string $intro): self
+    {
+        $this->intro = $intro;
+
+        return $this;
+    }
+
+    public function getTitle1(): ?string
+    {
+        return $this->title1;
+    }
+
+    public function setTitle1(?string $title1): self
+    {
+        $this->title1 = $title1;
+
+        return $this;
+    }
+
+    public function getTitle2(): ?string
+    {
+        return $this->title2;
+    }
+
+    public function setTitle2(?string $title2): self
+    {
+        $this->title2 = $title2;
+
+        return $this;
+    }
+
+    public function getText1(): ?string
+    {
+        return $this->text1;
+    }
+
+    public function setText1(?string $text1): self
+    {
+        $this->text1 = $text1;
+
+        return $this;
+    }
+
+    public function getText2(): ?string
+    {
+        return $this->text2;
+    }
+
+    public function setText2(?string $text2): self
+    {
+        $this->text2 = $text2;
 
         return $this;
     }

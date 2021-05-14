@@ -16,12 +16,17 @@ CREATE TABLE `application` (
   `date_fin` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `repo_url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `intro` varchar(600) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title1` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title2` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `text1` varchar(1000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `text2` varchar(1000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO `application` (`id`, `name`, `subtitle`, `date_debut`, `date_fin`, `url`, `repo_url`) VALUES
-(1,	'Plantopia',	'Application de référencement de plantes',	'février 2021',	'mars 2021',	NULL,	'https://github.com/Guillaume-Debeire/Plantopia'),
-(2,	'Mon Site',	'Application de présentation personnelle',	'mai 2021',	'mai 2021',	'http://0.0.0.0:8000/',	'https://github.com/Guillaume-Debeire/MonSite');
+INSERT INTO `application` (`id`, `name`, `subtitle`, `date_debut`, `date_fin`, `url`, `repo_url`, `intro`, `title1`, `title2`, `text1`, `text2`) VALUES
+(1,	'Plantopia',	'Application de référencement de plantes',	'février 2021',	'mars 2021',	NULL,	'https://github.com/Guillaume-Debeire/Plantopia',	'Plantopia est une application de référencement de plantes personnelle. Elle permet à un utilisateur d\'enregistrer ses plantes dans la base de données, et d\'y attribuer des rappels pour l\'arrosage, la fertilisation ou le rempotage des plantes.',	'Front-Office',	'Back-Office',	'Le Front-Office de Plantopia a été réalisé en React.',	'Le Back-Office de Plantopia a été réalisé avec Symfony, assurant une bonne gestion des données de la base. Nous avons développé le back-office avec Twig.'),
+(2,	'Mon Site',	'Application de présentation personnelle',	'mai 2021',	'mai 2021',	'http://0.0.0.0:8000/',	'https://github.com/Guillaume-Debeire/MonSite',	'MonSite est une application de présentation personnelle, que j\'ai conçu dans le but de développer ce que j\'ai appris pendant la formation, et d\'avoir un support de présentation.',	NULL,	NULL,	NULL,	NULL);
 
 DROP TABLE IF EXISTS `audiovisuel`;
 CREATE TABLE `audiovisuel` (
@@ -88,7 +93,8 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 ('DoctrineMigrations\\Version20210511182229',	'2021-05-11 20:22:35',	129),
 ('DoctrineMigrations\\Version20210511202009',	'2021-05-11 22:20:16',	122),
 ('DoctrineMigrations\\Version20210512090732',	'2021-05-12 11:07:45',	192),
-('DoctrineMigrations\\Version20210512154415',	'2021-05-12 17:44:21',	218);
+('DoctrineMigrations\\Version20210512154415',	'2021-05-12 17:44:21',	218),
+('DoctrineMigrations\\Version20210514134521',	'2021-05-14 15:45:27',	139);
 
 DROP TABLE IF EXISTS `documents`;
 CREATE TABLE `documents` (
@@ -335,4 +341,4 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
--- 2021-05-14 09:59:21
+-- 2021-05-14 17:51:57

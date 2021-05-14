@@ -23,7 +23,7 @@
                     <h3 class="show_box_title">Informations</h3>
                     <ul class="show_list">
                         <li>{{ parcour.email }}</li>
-                        <li><a href="tel:{{ parcour.phone }}">{{ parcour.phone }}</a></li>
+                        <li><a class="show_phone_number" href="tel:{{ parcour.phone }}">{{ parcour.phone }}</a></li>
                         <li>{{ parcour.adress }}</li>
                         <li>{{ parcour.specialization }}</li>
                         <li></li>
@@ -64,7 +64,7 @@
                             {# {{dump(production)}} #}
                             
                             <a class="production_card_link" href="{{ path("absolute") }}{{production.description}}/{{ production.exercice_id }}{{ production.application_id }}{{ production.audiovisuel_id }}">
-                                <div class="production_card_exemple">
+                                <div class="show_production_card_exemple">
                                     <h4>{{ production.name }}</h4>
                                 </div>
                             </a>

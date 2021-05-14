@@ -87,13 +87,7 @@ body {
     text-decoration: none;
 }
 
-#cinema_card {
-    background: url('../assets/images/habillage/cinema_background.jpg');
 
-}
-#internet_card {
-    background-image: url('../assets/images/habillage/cinema_background.jpg')
-}
 /* .parcours_card_1:hover{
     background-color: rgb(25, 54, 90);
 } */
@@ -139,7 +133,7 @@ body {
 }
 .parcours_card_software {
     border-radius: 20px;
-    box-shadow: 0px 4px 0px 2px rgb(4, 10, 17);
+    /* box-shadow: 0px 4px 0px 2px rgb(4, 10, 17); */
     width: 40%;
     margin: 1em auto;
     text-align: center;
@@ -223,6 +217,7 @@ body {
     width: 15%;
 }
 .show_center {
+
     text-align: center;
     width: 65%;
     margin: auto;
@@ -255,6 +250,10 @@ body {
 }
 .show_title {
     margin-top: 0;
+    background: linear-gradient(rgb(54, 114, 155), rgb(73, 142, 189));
+    color: white;
+    border-radius: 20px;
+    padding: 10px 25px;
 }
 .subtitle {
     margin: 0;
@@ -269,7 +268,9 @@ body {
 }
 
 .show_box {
+    background: linear-gradient(rgb(54, 114, 155), rgb(73, 142, 189));
     font-size: small;
+    color: white;
     border-radius: 10px;
     box-shadow: 0px 4px 5px 3px rgba(0, 0, 0, 0.171);
 }
@@ -408,7 +409,7 @@ body {
         flex-direction: row;
     }
     .parcours_card {
-        width: 40%;
+        width: 48%;
         margin: 2em auto;
     }
     .show_body {
@@ -426,6 +427,14 @@ body {
     .show_right{
         order: 3;
         width: 15%;
+    }
+    #cinema_card {
+    
+        background: no-repeat left/80% 100% url('../assets/images/habillage/cinema_background.png') #F2F2F2;
+    
+    }
+    #internet_card {
+        background: no-repeat right/80% 100% url('../assets/images/habillage/internet_background.png') #F2F2F2;
     }
 }
 
