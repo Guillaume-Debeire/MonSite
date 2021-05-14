@@ -19,6 +19,22 @@ class PictureRepository extends ServiceEntityRepository
         parent::__construct($registry, Picture::class);
     }
 
+    public function findPictureByApplication($id) 
+    {
+        $entityManager = $this->getEntityManager();
+        $conn = $entityManager->getConnection();
+        
+            $sql = '
+            SELECT *
+            FROM picture
+            WHERE application_id = :id
+            ';
+        
+        $stmt = $conn->prepare($sql);
+        $stmt->executeStatement(['id' => $id]);
+        return $stmt->fetchAllAssociative();
+    }
+
     // /**
     //  * @return Picture[] Returns an array of Picture objects
     //  */

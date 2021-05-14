@@ -14,12 +14,14 @@ CREATE TABLE `application` (
   `subtitle` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `date_debut` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `date_fin` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `repo_url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO `application` (`id`, `name`, `subtitle`, `date_debut`, `date_fin`) VALUES
-(1,	'Plantopia',	'Application de référencement de plantes',	'février 2021',	'mars 2021'),
-(2,	'Mon Site',	'Application de présentation personnelle',	'mai 2021',	'mai 2021');
+INSERT INTO `application` (`id`, `name`, `subtitle`, `date_debut`, `date_fin`, `url`, `repo_url`) VALUES
+(1,	'Plantopia',	'Application de référencement de plantes',	'février 2021',	'mars 2021',	NULL,	'https://github.com/Guillaume-Debeire/Plantopia'),
+(2,	'Mon Site',	'Application de présentation personnelle',	'mai 2021',	'mai 2021',	'http://0.0.0.0:8000/',	'https://github.com/Guillaume-Debeire/MonSite');
 
 DROP TABLE IF EXISTS `audiovisuel`;
 CREATE TABLE `audiovisuel` (
@@ -45,16 +47,24 @@ CREATE TABLE `doc` (
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `path` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `application_id` int(11) DEFAULT NULL,
+  `exercice_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_8641FD646E38C0DB` (`parcours_id`),
-  CONSTRAINT `FK_8641FD646E38C0DB` FOREIGN KEY (`parcours_id`) REFERENCES `parcours` (`id`)
+  KEY `IDX_8641FD643E030ACD` (`application_id`),
+  KEY `IDX_8641FD6489D40298` (`exercice_id`),
+  CONSTRAINT `FK_8641FD643E030ACD` FOREIGN KEY (`application_id`) REFERENCES `application` (`id`),
+  CONSTRAINT `FK_8641FD646E38C0DB` FOREIGN KEY (`parcours_id`) REFERENCES `parcours` (`id`),
+  CONSTRAINT `FK_8641FD6489D40298` FOREIGN KEY (`exercice_id`) REFERENCES `exercice` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO `doc` (`id`, `parcours_id`, `name`, `description`, `path`) VALUES
-(1,	NULL,	'CV',	NULL,	'assets/documents/officiels/CV_Guillaume_Debeire_2021.pdf'),
-(2,	2,	'Diplôme 3iS',	'Diplome',	'assets/documents/officiels/Diplome_3IS.pdf'),
-(3,	3,	'Certificat Opquast',	'certificat',	'assets/documents/officiels/certificat_opquast.pdf'),
-(4,	2,	'Diplôme 3iS Bachelor',	'Diplome',	'Diplome_3IS_Bachelor');
+INSERT INTO `doc` (`id`, `parcours_id`, `name`, `description`, `path`, `application_id`, `exercice_id`) VALUES
+(1,	NULL,	'CV',	NULL,	'assets/documents/officiels/CV_Guillaume_Debeire_2021.pdf',	NULL,	NULL),
+(2,	2,	'Diplôme 3iS',	'Diplome',	'assets/documents/officiels/Diplome_3IS.pdf',	NULL,	NULL),
+(3,	3,	'Certificat Opquast',	'certificat',	'assets/documents/officiels/certificat_opquast.pdf',	NULL,	NULL),
+(4,	2,	'Diplôme 3iS Bachelor',	'Diplome',	'assets/documents/officiels/Diplome_3IS_Bachelor.pdf',	NULL,	NULL),
+(5,	NULL,	'Dossier de présentation',	'dossier',	'assets/documents/plantopia/dossier_de_projet.pdf',	1,	NULL),
+(6,	NULL,	'MCD',	NULL,	'assets/documents/plantopia/mcd_v8.svg',	1,	NULL);
 
 DROP TABLE IF EXISTS `doctrine_migration_versions`;
 CREATE TABLE `doctrine_migration_versions` (
@@ -77,7 +87,8 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 ('DoctrineMigrations\\Version20210511163208',	'2021-05-11 18:32:27',	149),
 ('DoctrineMigrations\\Version20210511182229',	'2021-05-11 20:22:35',	129),
 ('DoctrineMigrations\\Version20210511202009',	'2021-05-11 22:20:16',	122),
-('DoctrineMigrations\\Version20210512090732',	'2021-05-12 11:07:45',	192);
+('DoctrineMigrations\\Version20210512090732',	'2021-05-12 11:07:45',	192),
+('DoctrineMigrations\\Version20210512154415',	'2021-05-12 17:44:21',	218);
 
 DROP TABLE IF EXISTS `documents`;
 CREATE TABLE `documents` (
@@ -324,4 +335,4 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
--- 2021-05-12 10:39:32
+-- 2021-05-14 09:59:21

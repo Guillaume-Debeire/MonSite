@@ -7,28 +7,28 @@
 
 <div class="show_page">
         <header class="show_header">
-            <a class="nav_bar_item" href="{{ path('production') }}">Retour à la liste</a>
+            {# <a class="nav_bar_item" href="{{ path('production') }}">Retour à la liste</a> #}
             <div class="show_header_title">
-                <a class="nav_button" href="#">&#8249;</a>
+                {# <a class="nav_button" href="#">&#8249;</a> #}
                 <div>
-                    <h1>{{ application.name }}</h1>
+                    <h1 class="show_title">{{ application.name }}</h1>
                 </div>
                 
-                <a class="nav_button" href="#">&#8250;</a>
+                {# <a class="nav_button" href="#">&#8250;</a> #}
             </div>
-            <h4>{{ application.subtitle }}</h4>
-            <h5>{{ application.dateDebut }} -> {{ application.dateFin }}</h5>
+            <h4 class="subtitle">{{ application.subtitle }}</h4>
+            <h5 class="subtitle">{{ application.dateDebut }} -> {{ application.dateFin }}</h5>
         </header>
         <div class="show_body">
             <div class="show_left">
-                {% if (application.url is defined or application.repoUrl is defined) %}
+                {% if ((application.url is not null) or (application.repoUrl is not null)) %}
                     <div class="show_box">
                         <h3 class="show_box_title">Liens</h3>
                         <ul class="show_list">
-                            {% if (application.repoUrl is defined) %}
+                            {% if (application.repoUrl is not null) %}
                             <li class="show_list_item"><a class="show_list_url" href="{{ application.repoUrl }}">Repo Github</a></li>
                             {% endif %}
-                            {% if (application.url is defined) %}
+                            {% if (application.url is not null) %}
                             <li class="show_list_item"><a class="show_list_url" href="{{ application.url }}">lien vers le site</a></li>
                             {% endif %}
                         </ul>
@@ -67,30 +67,33 @@
             <div class="show_right">
                 <div class="show_box">
                     <h3 class="show_box_title">Documents</h3>
-                    <a class="production_card_link" href="{{ asset("assets/documents/plantopia/mcd_v8.svg") }}">
-                        <div class="production_card_exemple">
-                            <h4>Nom de la production</h4>
-                        </div>
-                    </a>
                     {% for doc in docs %}
-                    <a class="production_card_link" href="{{ doc.path }}">
+                    <a class="production_card_link" href="{{ asset(doc.path) }}">
                         <div class="production_card_exemple">
                             <h4>{{ doc.name }}</h4>
                         </div>
                     </a>
                     {% else %}
                     {% endfor %}
-                    <a class="production_card_link" href="">
-                        <div class="production_card_exemple">
-                            <h4>Nom de la production</h4>
-                        </div>
-                    </a>
-                    <a class="production_card_link" href="">
-                        <div class="production_card_exemple">
-                            <h4>Nom de la production</h4>
-                        </div>
-                    </a>
                 </div>
+                {% if pictures.O is defined %}
+                <div class="show_box">
+                    <h3 class="show_box_title">Images</h3>
+                    {% for picture in pictures %}
+                    <a class="production_card_picture" href="{{ asset(picture.path) }}">
+                        <div class="production_card_picture_element">
+                            <img src="{{ asset(picture.path) }}"
+                                alt="
+                                    {% if picture.name is defined %}
+                                        {{ picture.name }}
+                                    {% endif %}
+                                    ">
+                        </div>
+                    </a>
+                    {% else %}
+                    {% endfor %}
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>

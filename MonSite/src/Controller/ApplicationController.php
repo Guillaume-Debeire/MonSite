@@ -6,6 +6,7 @@ use App\Entity\Application;
 use App\Form\ApplicationType;
 use App\Repository\ApplicationRepository;
 use App\Repository\DocRepository;
+use App\Repository\PictureRepository;
 use App\Repository\SkillRepository;
 use App\Repository\SoftwareRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -54,14 +55,14 @@ class ApplicationController extends AbstractController
     /**
      * @Route("/{id}", name="application_show", methods={"GET"})
      */
-    public function show(Application $application, SoftwareRepository $softwareRepository, SkillRepository $skillRepository, DocRepository $docs): Response
+    public function show(Application $application, SoftwareRepository $softwareRepository, SkillRepository $skillRepository, DocRepository $docs, PictureRepository $pictures): Response
     {
         return $this->render('application/show.html.twig', [
             'application' => $application,
             'softwares' => $softwareRepository->findSoftwareByApplication($application->getId()),
             'skills' => $skillRepository->findSkillByApplication($application->getId()),
-            'docs' => $docs->findDocByApplication($application->getId())
-
+            'docs' => $docs->findDocByApplication($application->getId()), 
+            'pictures' => $pictures->findPicturebyApplication($application->getId())
         ]);
     }
 
