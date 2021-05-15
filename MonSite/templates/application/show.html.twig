@@ -76,24 +76,29 @@
                     {% else %}
                     {% endfor %}
                 </div>
-                {% if pictures.O is defined %}
-                <div class="show_box">
-                    <h3 class="show_box_title">Images</h3>
-                    {% for picture in pictures %}
-                    <a class="production_card_picture" href="{{ asset(picture.path) }}">
-                        <div class="production_card_picture_element">
-                            <img src="{{ asset(picture.path) }}"
-                                alt="
-                                    {% if picture.name is defined %}
-                                        {{ picture.name }}
-                                    {% endif %}
-                                    ">
+                {# {% if pictures.O is defined %} #}
+                    <div class="show_box">
+                        <h3 class="show_box_title">Images</h3>
+                        <div class="box_picture_content">
+                        {% for picture in pictures %}
+                            <a class="production_card_picture" href="{{ asset(picture.path) }}">
+                                    <img class="production_card_picture_element" src="{{ asset(picture.path) }}"
+                                        alt="
+                                            {% if picture.name is defined %}
+                                                {{ picture.name }}
+                                            {% endif %}
+                                            ">
+                            </a>
+                        {% else %}
+                        {% endfor %}
+                            <a class="production_card_picture" href="{{ path('picture_new') }}">
+                                <div class="">
+                                    <img class="production_card_picture_element" src="{{ asset('assets/images/habillage/plus.png') }}" alt="">
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                    {% else %}
-                    {% endfor %}
-                </div>
-                {% endif %}
+                    </div>
+                {# {% endif %} #}
             </div>
         </div>
     </div>

@@ -1,5 +1,6 @@
 html{
     background: linear-gradient(rgb(250, 255, 251), rgb(243, 253, 245), rgb(250, 255, 251));
+    background: no-repeat center/100% 100% url('../assets/images/habillage/green_white.png') fixed;
 }
 
 a {
@@ -33,7 +34,9 @@ body {
     background-color: rgb(33, 97, 47);
 }
 
-
+.parcours_card {
+    background: linear-gradient(rgb(255, 255, 255), #FAFEFB, rgb(255, 255, 255));
+}
 .parcours_card:hover{
     background-color: rgb(255, 255, 255);
 }
@@ -44,11 +47,15 @@ body {
     box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.514);
     padding: 0 0 14px;
     background: linear-gradient(rgb(29, 122, 57),rgb(42, 155, 76)) ;
+    /* background: no-repeat center/100% url('../assets/images/habillage/green_back.jpg'); */
     color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 2px black;
+    font-weight: bolder;
 }
 .parcours_card_super_header:hover {
     background: rgb(255, 255, 255);
     color: rgb(23, 161, 65);
+    text-shadow: none;
 }
 
 
@@ -105,6 +112,11 @@ body {
     font-size: 15px;
     padding: 0 1em;
     font-weight: 600;
+}
+.show_center {
+    color: black;
+    background-color: #FAFEFB;
+    /* backdrop-filter: opacity(80%); */
 }
 .show_title {
     background: linear-gradient(rgb(24, 100, 47),rgb(42, 155, 76)) ;
