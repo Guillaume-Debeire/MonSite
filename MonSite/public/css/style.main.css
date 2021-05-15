@@ -1,12 +1,20 @@
 html{
-    background: linear-gradient(rgb(235, 235, 235), rgb(221, 214, 214), rgb(235, 235, 235));
+    /* background: linear-gradient(rgb(235, 235, 235), rgb(221, 214, 214), rgb(235, 235, 235)); */
+    background: no-repeat center/100% 160% url('../assets/images/habillage/blue_mountains.jpg') fixed;
 }
 
 a {
     color: rgb(39, 39, 39);
+    text-shadow: none;
 }
 body {
-    color: rgb(48, 40, 40)
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 2px black;
+}
+.my_name {
+    color: rgb(0, 0, 0);
+    text-shadow: none;
+    font-weight: bold;
 }
 
 .nav_bar_item {
