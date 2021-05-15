@@ -26,7 +26,7 @@ CREATE TABLE `application` (
 
 INSERT INTO `application` (`id`, `name`, `subtitle`, `date_debut`, `date_fin`, `url`, `repo_url`, `intro`, `title1`, `title2`, `text1`, `text2`) VALUES
 (1,	'Plantopia',	'Application de référencement de plantes',	'février 2021',	'mars 2021',	NULL,	'https://github.com/Guillaume-Debeire/Plantopia',	'Plantopia est une application de référencement de plantes personnelle. Elle permet à un utilisateur d\'enregistrer ses plantes dans la base de données, et d\'y attribuer des rappels pour l\'arrosage, la fertilisation ou le rempotage des plantes.',	'Front-Office',	'Back-Office',	'Le Front-Office de Plantopia a été réalisé en React.',	'Le Back-Office de Plantopia a été réalisé avec Symfony, assurant une bonne gestion des données de la base. Nous avons développé le back-office avec Twig.'),
-(2,	'Mon Site',	'Application de présentation personnelle',	'mai 2021',	'mai 2021',	'http://0.0.0.0:8000/',	'https://github.com/Guillaume-Debeire/MonSite',	'MonSite est une application de présentation personnelle, que j\'ai conçu dans le but de développer ce que j\'ai appris pendant la formation, et d\'avoir un support de présentation.',	NULL,	NULL,	NULL,	NULL);
+(2,	'Mon Site',	'Application de présentation personnelle',	'mai 2021',	'mai 2021',	'http://0.0.0.0:8000/',	'https://github.com/Guillaume-Debeire/MonSite',	'MonSite est une application de présentation personnelle, que j\'ai conçu dans le but de développer ce que j\'ai appris pendant la formation, et d\'avoir un support de présentation.',	'Front-office',	'Back-office',	'Pour le front de Mon Site, tout a été fait en Twig et CSS. Je n\'ai pas (encore) utilisé de Javascript, mais c\'est une intégration prévue pour une prochaine version. Toutes les données proviennent de la base de données, et les formulaires permettent un ajout rapide de donées.',	'Pour le back, j\'ai utilisé Symfony, mariaDB, Doctrine, et un mélange de DQL et de SQL. Les liaisons entre toutes les tables permettent un affichage dynamique des données, une navigation instinctive et d\'éviter de répéter du code.');
 
 DROP TABLE IF EXISTS `audiovisuel`;
 CREATE TABLE `audiovisuel` (
@@ -166,6 +166,13 @@ CREATE TABLE `picture` (
   CONSTRAINT `FK_16DB4F8989D40298` FOREIGN KEY (`exercice_id`) REFERENCES `exercice` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+INSERT INTO `picture` (`id`, `parcours_id`, `path`, `application_id`, `exercice_id`, `name`) VALUES
+(6,	NULL,	'assets/images/parcours_v1.png',	2,	NULL,	'parcours_v1.png'),
+(7,	NULL,	'assets/images/parcours_v2.png',	2,	NULL,	'parcours_v2.png'),
+(9,	NULL,	'assets/images/production_v1.png',	2,	NULL,	'production_v1'),
+(10,	NULL,	'assets/images/logo-plantopia-transparent.png',	1,	NULL,	'logo-plantopia-transparent'),
+(11,	NULL,	'assets/images/IMG_0063.png',	1,	NULL,	'IMG_0063'),
+(12,	NULL,	'assets/images/Production.svg',	2,	NULL,	'Production.svg');
 
 DROP TABLE IF EXISTS `production`;
 CREATE TABLE `production` (
@@ -311,6 +318,7 @@ CREATE TABLE `software_application` (
 
 INSERT INTO `software_application` (`software_id`, `application_id`) VALUES
 (1,	1),
+(1,	2),
 (2,	1);
 
 DROP TABLE IF EXISTS `software_parcours`;
@@ -341,4 +349,4 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
--- 2021-05-14 17:51:57
+-- 2021-05-15 16:33:39
