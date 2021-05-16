@@ -83,7 +83,7 @@ class ProductionController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="production_delete", methods={"POST"})
+     * @Route("/{id}/delete", name="production_delete", methods={"POST"})
      */
     public function delete(Request $request, Production $production): Response
     {

@@ -81,7 +81,7 @@ class DocumentsController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="documents_delete", methods={"POST"})
+     * @Route("/{id}/delete", name="documents_delete", methods={"POST"})
      */
     public function delete(Request $request, Documents $document): Response
     {

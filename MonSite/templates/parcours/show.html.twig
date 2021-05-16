@@ -74,8 +74,8 @@
                     
                     <h3 class="show_box_title">Documents</h3>
                         {% for doc in docs %}
-                            <a class="production_card_link" href="{{ asset(doc.path) }}">
-                                <div class="production_card_exemple">
+                            <a class="production_card_link"  href="{{ asset(doc.path) }}">
+                                <div class="production_card_exemple"id="application_doc">
                                     <h4>{{ doc.name }}</h4>
                                 </div>
                             </a>

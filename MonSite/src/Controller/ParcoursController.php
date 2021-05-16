@@ -24,11 +24,11 @@ class ParcoursController extends AbstractController
     /**
      * @Route("/", name="parcours", methods={"GET"})
      */
-    public function index(ParcoursRepository $parcoursRepository, ProductionRepository $productionRepository): Response
+    public function index(ParcoursRepository $parcoursRepository, ProductionRepository $productionRepository, DocRepository $docRepository): Response
     {
         return $this->render('parcours/index.html.twig', [
             'parcours' => $parcoursRepository->findAll(),
-            'oclockExercices' => $productionRepository->findExerciceByParcours("O'Clock"),
+            'oclockDocs' => $docRepository->findDocByParcours("3"),
             'oclockApplications' => $productionRepository->findApplicationByParcours("O'Clock"),
             'cinemaAudiovisuels' => $productionRepository->findAudiovisuelByParcours("3iS")
         ]);
@@ -92,7 +92,7 @@ class ParcoursController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="parcours_delete", methods={"POST"})
+     * @Route("/{id}/delete", name="parcours_delete", methods={"POST"})
      */
     public function delete(Request $request, Parcours $parcour): Response
     {

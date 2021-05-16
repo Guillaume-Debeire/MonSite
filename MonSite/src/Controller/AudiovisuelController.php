@@ -79,7 +79,7 @@ class AudiovisuelController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="audiovisuel_delete", methods={"POST"})
+     * @Route("/{id}/delete", name="audiovisuel_delete", methods={"POST"})
      */
     public function delete(Request $request, Audiovisuel $audiovisuel): Response
     {

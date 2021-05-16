@@ -1,6 +1,6 @@
 html{
     background: linear-gradient(rgb(250, 255, 251), rgb(243, 253, 245), rgb(250, 255, 251));
-    background: no-repeat center/100% 100% url('../assets/images/habillage/green_white.png') fixed;
+    background: no-repeat center/100% 100% url('../assets/images/habillage/green_white.jpg') fixed;
 }
 
 a {
@@ -87,6 +87,9 @@ body {
     color: rgb(10, 77, 26);
     box-shadow: 0px 4px 10px 1px rgba(14, 41, 18, 0.281);
 }
+#application_doc {
+    color: white;
+}
 .show_production_card_exemple {
     border-radius: 8px;
     margin: auto;
@@ -109,7 +112,7 @@ body {
     background: linear-gradient(rgb(24, 100, 47),rgb(42, 155, 76)) ;
     border-radius: 10px;
     color: white;
-    font-size: 15px;
+    
     padding: 0 1em;
     font-weight: 600;
 }

@@ -68,7 +68,7 @@
                 <div class="show_box">
                     <h3 class="show_box_title">Documents</h3>
                     {% for doc in docs %}
-                    <a class="production_card_link" href="{{ asset(doc.path) }}">
+                    <a class="production_card_link" id="application_doc" href="{{ asset(doc.path) }}">
                         <div class="production_card_exemple">
                             <h4>{{ doc.name }}</h4>
                         </div>
@@ -91,17 +91,22 @@
                             </a>
                         {% else %}
                         {% endfor %}
+                            {% if app.user %}
                             <a class="production_card_picture" href="{{ path('picture_new') }}">
                                 <div class="">
                                     <img class="production_card_picture_element" src="{{ asset('assets/images/habillage/plus.png') }}" alt="">
                                 </div>
                             </a>
+                            {% endif %}
                         </div>
                     </div>
                 {# {% endif %} #}
             </div>
         </div>
     </div>
+    {% if app.user %}
+        {{ include('application/_delete_form.html.twig') }}
+    {% endif %}
     {# <h1>Application</h1>
 
     <table class="table">

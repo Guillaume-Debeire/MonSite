@@ -79,7 +79,7 @@ class ExerciceController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="exercice_delete", methods={"POST"})
+     * @Route("/{id}/delete", name="exercice_delete", methods={"POST"})
      */
     public function delete(Request $request, Exercice $exercice): Response
     {

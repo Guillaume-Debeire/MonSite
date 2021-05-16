@@ -87,7 +87,7 @@ class ApplicationController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="application_delete", methods={"POST"})
+     * @Route("/{id}/delete", name="application_delete", methods={"POST"})
      */
     public function delete(Request $request, Application $application): Response
     {

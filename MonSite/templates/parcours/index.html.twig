@@ -73,13 +73,11 @@
                         {% endfor %}
                 </div>
                 <div class="parcours_card_software">
-                    <h3 class="parcours_card_title">Exercices</h3>
-                        {% for oclockExercice in oclockExercices %}
-                        <a class="production_card_link" href="{{ path('exercice_show', {'id': "1"}) }}">
-
-                        
+                    <h3 class="parcours_card_title">Documents</h3>
+                        {% for oclockDoc in oclockDocs %}
+                        <a class="production_card_link" href="{{ asset(oclockDoc.path) }}">
                             <div class="production_card_exemple">
-                            <h5 class="parcours_production_card">{{ oclockExercice.name }}</h5>
+                            <h5 class="parcours_production_card">{{ oclockDoc.name }}</h5>
                             </div>
                         </a>
                         {% endfor %}
