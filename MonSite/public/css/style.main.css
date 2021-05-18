@@ -71,3 +71,15 @@ body {
     left: 40%;
     right : 40%;
 }
+
+@media (min-width: 300px) {
+    .profile-pic {
+        width: 600px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .profile-pic {
+        width: 400px;
+    }
+}

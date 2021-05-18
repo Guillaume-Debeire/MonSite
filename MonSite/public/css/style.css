@@ -1,6 +1,6 @@
 html{
     /* background: linear-gradient(rgb(245, 251, 255), rgb(212, 232, 245), rgb(245, 251, 255)); */
-    background: no-repeat center/100% 100% url('../assets/images/habillage/blue_white.jpg') fixed;
+    background: repeat center/100% 100% url('../assets/images/habillage/blue_white.jpg') fixed;
 }
 
 a {
@@ -247,7 +247,6 @@ body {
     margin: 1em;
     padding: 1em 2em;
     background-color: #FBFDFF;
-    box-shadow: 0px 1px 8px 3px rgba(65, 65, 65, 0.356);
 }
 .show_center_audiovisuel {
     border-radius: 20px;
@@ -302,9 +301,7 @@ body {
 
 .show_box {
     background: linear-gradient(rgb(54, 114, 155), rgb(73, 142, 189));
-    font-size: 15px;
     color: white;
-    border-radius: 10px;
     box-shadow: 0px 4px 5px 3px rgba(0, 0, 0, 0.171);
 }
 .show_box_img {
@@ -386,11 +383,12 @@ body {
     html {
         font-size: 30px;
     }
-    .header {
-        width: 100%
+    body {
+        width: 90vw;
     }
-    .profile-pic {
-        width: 200px;
+    .header {
+        width: 23em;
+        
     }
     .parcours_cards {
         flex-direction: column;        
@@ -405,7 +403,9 @@ body {
     .show_center{
         order: 1;
         width: 100%;
-        padding: 0
+        padding: 0;
+        margin: 1em 0;
+        box-shadow: none;
     }
     .show_left{
         order: 2;
@@ -415,29 +415,39 @@ body {
         order: 3;
         width: 100%
     }
+    .show_box {
+       width: 60%;
+       font-size: 35px;
+       margin: auto;
+       border-radius: 40px;
+    }
+    #cinema_card {
+    
+        background: #F2F2F2;
+    
+    }
+    #internet_card {
+        background: #F2F2F2;
+    }
 }
 
 @media (min-width: 600px) {
-    .profile-pic {
-        width: 400px;
-    }
+    
     
 }
 
 @media (min-width: 900px) {
-    .profile-pic {
-        width: 400px;
-    }
+    
 }
 @media (min-width: 1200px) {
     html {
         font-size: large;
     }
+    body {
+        width: 80vw;
+    }
     .header {
         width: 35em;
-    }
-    .profile-pic {
-        width: 400px;
     }
     .parcours_cards {
         flex-direction: row;
@@ -452,7 +462,9 @@ body {
     .show_center{
         order: 2;
         width: 65%;
-        padding: 1em 2em
+        padding: 1em 2em;
+        margin: 1em;
+        box-shadow: 0px 1px 8px 3px rgba(65, 65, 65, 0.356);
     }
     .show_left{
         order: 1;
@@ -461,6 +473,11 @@ body {
     .show_right{
         order: 3;
         width: 15%;
+    }
+    .show_box {
+        width: 100%;
+        font-size: 15px;
+        border-radius: 10px;
     }
     #cinema_card {
     
