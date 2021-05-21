@@ -12,8 +12,9 @@
                     <td colspan="3">no records found</td>
                 </tr>
             {% endfor %}
+            {% if "ROLE_ADMIN" in app.user.roles %}
             <a href="{{ path('application_new') }}">Create new</a>
-
+            {% endif %}
         </div>
 {% endblock %}
 

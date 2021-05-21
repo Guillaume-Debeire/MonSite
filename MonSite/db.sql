@@ -94,7 +94,9 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 ('DoctrineMigrations\\Version20210511202009',	'2021-05-11 22:20:16',	122),
 ('DoctrineMigrations\\Version20210512090732',	'2021-05-12 11:07:45',	192),
 ('DoctrineMigrations\\Version20210512154415',	'2021-05-12 17:44:21',	218),
-('DoctrineMigrations\\Version20210514134521',	'2021-05-14 15:45:27',	139);
+('DoctrineMigrations\\Version20210514134521',	'2021-05-14 15:45:27',	139),
+('DoctrineMigrations\\Version20210516113236',	'2021-05-21 19:35:04',	100),
+('DoctrineMigrations\\Version20210516113459',	'2021-05-21 19:35:04',	16);
 
 DROP TABLE IF EXISTS `documents`;
 CREATE TABLE `documents` (
@@ -343,10 +345,15 @@ INSERT INTO `software_parcours` (`software_id`, `parcours_id`) VALUES
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `role` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
+  `email` varchar(180) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `roles` longtext COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '(DC2Type:json)',
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_8D93D649E7927C74` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+INSERT INTO `user` (`id`, `email`, `roles`, `password`) VALUES
+(1,	'guillaume@admin.com',	'[\"ROLE_USER\",\"ROLE_ADMIN\"]',	'$argon2id$v=19$m=65536,t=4,p=1$pv1htaDqVI0cmmwbUbIvAA$LaxfW2KlyNI78Z+LrC4zd/10VMtjyIpaBeGM0peqSzI'),
+(2,	'visiteur@visiteur.com',	'[]',	'$argon2id$v=19$m=65536,t=4,p=1$+bpc1d0MMVcmXqVaZBhkYA$gSNn33qp8yRvpnnyw/mWKDG6tIq+QGs6waFdIgnd4xc');
 
--- 2021-05-18 12:59:35
+-- 2021-05-21 18:07:19

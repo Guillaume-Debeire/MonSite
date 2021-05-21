@@ -113,7 +113,7 @@ body {
     border-radius: 10px;
     color: white;
     
-    padding: 0 1em;
+    /* padding: 0 1em; */
     font-weight: 600;
 }
 .show_center {

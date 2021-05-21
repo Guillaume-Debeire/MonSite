@@ -91,7 +91,7 @@
                             </a>
                         {% else %}
                         {% endfor %}
-                            {% if app.user %}
+                            {% if "ROLE_ADMIN" in app.user.roles %}
                             <a class="production_card_picture" href="{{ path('picture_new') }}">
                                 <div class="">
                                     <img class="production_card_picture_element" src="{{ asset('assets/images/habillage/plus.png') }}" alt="">
@@ -104,7 +104,7 @@
             </div>
         </div>
     </div>
-    {% if app.user %}
+    {% if "ROLE_ADMIN" in app.user.roles %}
         {{ include('application/_delete_form.html.twig') }}
     {% endif %}
     {# <h1>Application</h1>

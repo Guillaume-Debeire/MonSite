@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Security\Voter;
+namespace App\Security;
 
 use App\Entity\User;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-class UserVoter extends Voter
+class SecurityVoter extends Voter
 {
     // on utilise une constante de classe 
     //   - cela permet d'être sur que le nom du droit à tester est bien le meme partout

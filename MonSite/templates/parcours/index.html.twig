@@ -101,7 +101,7 @@
         {% endfor %}
         </tbody>
     </table> #}
-    {% if app.user %}
+    {% if "ROLE_ADMIN" in app.user.roles %}
     <div>
         <a href="{{ path('parcours_new') }}">Create new</a>
     </div>
