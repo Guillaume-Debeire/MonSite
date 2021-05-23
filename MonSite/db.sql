@@ -356,4 +356,4 @@ INSERT INTO `user` (`id`, `email`, `roles`, `password`) VALUES
 (1,	'guillaume@admin.com',	'[\"ROLE_USER\",\"ROLE_ADMIN\"]',	'$argon2id$v=19$m=65536,t=4,p=1$pv1htaDqVI0cmmwbUbIvAA$LaxfW2KlyNI78Z+LrC4zd/10VMtjyIpaBeGM0peqSzI'),
 (2,	'visiteur@visiteur.com',	'[]',	'$argon2id$v=19$m=65536,t=4,p=1$+bpc1d0MMVcmXqVaZBhkYA$gSNn33qp8yRvpnnyw/mWKDG6tIq+QGs6waFdIgnd4xc');
 
--- 2021-05-21 18:07:19
+-- 2021-05-23 11:20:56
